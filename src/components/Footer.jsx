@@ -22,7 +22,7 @@ export default function Footer() {
                 <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-40 mb-16 md:mb-32">
 
                     {/* Left: Logo and Social */}
-                    <div className="flex flex-col gap-10">
+                    <div className="flex flex-col items-center lg:items-start gap-10">
                         <div className="flex items-center gap-6">
                             {/* Assuming standard logo, you might want to replace with the exact SVG later */}
                             <img
@@ -30,7 +30,6 @@ export default function Footer() {
                                 alt="PureSmile"
                                 className="w-40 h-40 md:w-64 md:h-64 object-contain"
                             />
-
                         </div>
 
                         {/* Social Icons */}
@@ -171,8 +170,8 @@ export default function Footer() {
                 </div>
 
                 {/* Copyright */}
-                <div className="text-center pt-16 border-t border-gray-200">
-                    <p className="text-gray-500 text-base font-bold">
+                <div className="text-center pt-8 md:pt-16 border-t border-gray-200">
+                    <p className="text-gray-500 text-sm md:text-base font-bold px-4">
                         © {currentYear} PureSmile Dental Clinic. All rights reserved.
                     </p>
                 </div>
