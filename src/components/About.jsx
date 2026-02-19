@@ -75,7 +75,7 @@ const About = () => {
                         <img 
                             src={teethBg} 
                             alt="Background Teeth" 
-                            className="w-full h-full object-contain opacity-90 transform scale-90 md:scale-95 transition-transform duration-700"
+                            className="w-full h-full object-contain opacity-90 transform scale-90 md:scale-110 transition-transform duration-700"
                         />
                     </div>
 

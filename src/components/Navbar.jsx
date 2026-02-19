@@ -1,6 +1,6 @@
 import Logo from '../assets/logo.png';
 
-function Navbar() {
+function Navbar({ onBookClick }) {
     return (
         <nav className="w-full bg-[#FCFCFC] px-8 py-6 flex justify-between items-center font-sans ">
             {/* Logo Section: White pill container */}
@@ -15,20 +15,20 @@ function Navbar() {
             <section>
                 <ul className="bg-white flex items-center p-1.5 rounded-full shadow-sm text-lg">
                     {/* Active Link (Home) */}
-                    <li className="bg-black text-white px-6 py-2 rounded-full cursor-pointer font-light">
+                    <li className="bg-black text-white px-6 py-2 rounded-full cursor-pointer font-bold uppercase tracking-wider">
                         Home
                     </li>
                     {/* Inactive Links */}
-                    <li className="text-black hover:text-gray-900 px-5 cursor-pointer font-light transition-colors">
+                    <li className="text-black hover:text-[#01CE91] px-5 cursor-pointer font-bold transition-colors uppercase tracking-wider">
                         <a href="#about">About</a>
                     </li>
-                    <li className="text-black hover:text-gray-900 px-5 cursor-pointer font-light transition-colors">
+                    <li className="text-black hover:text-[#01CE91] px-5 cursor-pointer font-bold transition-colors uppercase tracking-wider">
                         <a href="#services">Services</a>
                     </li>
-                    <li className="text-black hover:text-gray-900 px-5 cursor-pointer font-light transition-colors">
+                    <li className="text-black hover:text-[#01CE91] px-5 cursor-pointer font-bold transition-colors uppercase tracking-wider">
                         <a href="#doctors">Our Doctors</a>
                     </li>
-                    <li className="text-black hover:text-gray-900 px-5 cursor-pointer font-light transition-colors">
+                    <li className="text-black hover:text-[#01CE91] px-5 cursor-pointer font-bold transition-colors uppercase tracking-wider">
                         <a href="#reviews">Reviews</a>
                     </li>
                 </ul>
@@ -36,11 +36,14 @@ function Navbar() {
 
             {/* Action Buttons */}
             <section className="flex gap-4 text-lg">
-                <button className="bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-sm hover:bg-gray-50 transition-colors">
+                <button className="bg-white text-gray-900 px-8 py-3 rounded-full font-black shadow-sm hover:bg-gray-50 transition-colors uppercase tracking-wider border border-gray-100">
                     Log in
                 </button>
-                <button className="bg-black text-white px-8 py-3 rounded-full font-bold shadow-sm hover:bg-gray-800 transition-colors">
-                    Sign in
+                <button
+                    onClick={onBookClick}
+                    className="bg-[#1A1A1A] text-white px-8 py-3 rounded-full font-black shadow-xl hover:bg-black transition-all hover:-translate-y-0.5 uppercase tracking-wider"
+                >
+                    Book Now
                 </button>
             </section>
         </nav>

@@ -1,161 +1,182 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowUpRight, ShieldCheck } from 'lucide-react';
-import Logo from '../assets/logo.png';
+import React, { useState } from 'react';
+import { Facebook, Instagram, Linkedin, Phone, Mail, ChevronDown } from 'lucide-react';
+import logo from '../assets/logo.png';
 
-const Footer = () => {
-    const currentYear = new Date().getFullYear();
+export default function Footer() {
+    const [email, setEmail] = useState('');
+    const [servicesOpen, setServicesOpen] = useState(false);
 
-    const footerLinks = {
-        company: [
-            { name: "About Us", href: "#about" },
-            { name: "Our Doctors", href: "#doctors" },
-            { name: "Services", href: "#services" },
-            { name: "Reviews", href: "#reviews" }
-        ],
-        support: [
-            { name: "Privacy Policy", href: "#" },
-            { name: "Terms of Service", href: "#" },
-            { name: "Cookie Policy", href: "#" },
-            { name: "Contact Us", href: "#" }
-        ],
-        social: [
-            { icon: <Facebook size={20} />, href: "#", name: "Facebook" },
-            { icon: <Twitter size={20} />, href: "#", name: "Twitter" },
-            { icon: <Instagram size={20} />, href: "#", name: "Instagram" },
-            { icon: <Linkedin size={20} />, href: "#", name: "LinkedIn" }
-        ]
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Subscribed:', email);
+        setEmail('');
     };
 
+    const currentYear = new Date().getFullYear();
+
     return (
-        <footer className="relative bg-[#1A1A1A] text-white pt-24 pb-12 overflow-hidden font-sans">
-            {/* Animated Background Elements */}
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#01CE91] to-transparent opacity-50"></div>
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#01CE91]/10 rounded-full blur-[120px]"></div>
-            <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-[#00E0B5]/10 rounded-full blur-[120px]"></div>
+        <footer className="bg-[#F5F5F5] pt-32 pb-20">
+            <div className="max-w-[1700px] mx-auto px-6 md:px-8">
 
-            <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+                {/* Top Section */}
+                <div className="flex flex-col lg:flex-row justify-between gap-20 lg:gap-40 mb-32">
 
-                    {/* Brand Section */}
-                    <div className="space-y-8">
-                        <div className="flex items-center gap-3">
-                            <div className="bg-white p-2 rounded-2xl">
-                                <img src={Logo} alt="PureSmile Logo" className="h-10 object-contain" />
-                            </div>
-                            <span className="text-2xl font-bold tracking-tight">Pure<span className="text-[#01CE91]">Smile</span></span>
+                    {/* Left: Logo and Social */}
+                    <div className="flex flex-col gap-10">
+                        <div className="flex items-center gap-6">
+                            {/* Assuming standard logo, you might want to replace with the exact SVG later */}
+                            <img
+                                src={logo}
+                                alt="PureSmile"
+                                className="w-64 h-64 object-contain"
+                            />
+
                         </div>
-                        <p className="text-gray-400 text-lg leading-relaxed max-w-xs">
-                            Modern dentistry backed by years of experience, clinical precision, and deep patient trust.
-                        </p>
-                        <div className="flex gap-4">
-                            {footerLinks.social.map((social) => (
-                                <a
-                                    key={social.name}
-                                    href={social.href}
-                                    className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-[#01CE91] hover:text-white transition-all duration-300 group"
-                                    aria-label={social.name}
-                                >
-                                    <span className="group-hover:scale-110 transition-transform">
-                                        {social.icon}
-                                    </span>
+
+                        {/* Social Icons */}
+                        <div className="flex items-center gap-6">
+                            <a href="#" className="w-14 h-14 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 hover:scale-125 shadow-md">
+                                <Facebook size={26} className="text-[#01CE91]" />
+                            </a>
+                            <a href="#" className="w-14 h-14 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 hover:scale-125 shadow-md">
+                                <Instagram size={26} className="text-[#01CE91]" />
+                            </a>
+                            <a href="#" className="w-14 h-14 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 hover:scale-125 shadow-md">
+                                {/* Custom TikTok SVG Path */}
+                                <svg className="w-6 h-6 text-[#01CE91]" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                                </svg>
+                            </a>
+                            <a href="#" className="w-14 h-14 rounded-full bg-white flex items-center justify-center hover:bg-gray-100 transition-all duration-300 hover:scale-125 shadow-md">
+                                <Linkedin size={26} className="text-[#01CE91]" />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right: Newsletter */}
+                    <div className="lg:max-w-2xl w-full">
+                        <h3 className="text-3xl font-bold text-[#1A1A1A] mb-8">Stay Updated</h3>
+                        <form onSubmit={handleSubmit} className="flex bg-white rounded-full p-3 shadow-lg border border-gray-100">
+                            <input
+                                type="email"
+                                placeholder="Enter Your email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                className="flex-1 bg-transparent px-8 py-4 text-lg text-gray-700 placeholder-gray-400 outline-none font-medium"
+                                required
+                            />
+                            <button
+                                type="submit"
+                                className="bg-[#1A1A1A] text-white text-lg font-black px-12 py-4 rounded-full hover:bg-black transition-all duration-300 active:scale-95 shadow-xl"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                {/* Links Grid */}
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16 lg:gap-24 mb-32">
+
+                    {/* Navigation */}
+                    <div className="flex flex-col gap-8">
+                        <h4 className="text-2xl font-black text-[#1A1A1A]">Navigation</h4>
+                        <div className="flex flex-col gap-5 font-bold">
+                            {['Home', 'About', 'Services', 'Our Doctors', 'Reviews'].map((item) => (
+                                <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
+                                    {item}
                                 </a>
                             ))}
                         </div>
                     </div>
 
                     {/* Quick Links */}
-                    <div>
-                        <h4 className="text-xl font-bold mb-8 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-[#01CE91]"></div>
-                            Company
-                        </h4>
-                        <ul className="space-y-4">
-                            {footerLinks.company.map((link) => (
-                                <li key={link.name}>
-                                    <a href={link.href} className="text-gray-400 hover:text-[#01CE91] transition-colors flex items-center group">
-                                        <ArrowUpRight size={14} className="mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                        {link.name}
-                                    </a>
-                                </li>
+                    <div className="flex flex-col gap-8">
+                        <h4 className="text-2xl font-black text-[#1A1A1A]">Quick Links</h4>
+                        <div className="flex flex-col gap-5 font-bold">
+                            {['Book a Consultation', 'Insurance Information', 'Emergency Dental Care', 'Pricing'].map((item) => (
+                                <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
+                                    {item}
+                                </a>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
-                    {/* Legal/Support */}
-                    <div>
-                        <h4 className="text-xl font-bold mb-8 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-[#01CE91]"></div>
-                            Support
-                        </h4>
-                        <ul className="space-y-4">
-                            {footerLinks.support.map((link) => (
-                                <li key={link.name}>
-                                    <a href={link.href} className="text-gray-400 hover:text-[#01CE91] transition-colors flex items-center group">
-                                        <ArrowUpRight size={14} className="mr-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                                        {link.name}
-                                    </a>
-                                </li>
+                    {/* Services */}
+                    <div className="flex flex-col gap-8">
+                        <button
+                            onClick={() => setServicesOpen(!servicesOpen)}
+                            className="flex items-center gap-4 text-2xl font-black text-[#1A1A1A] hover:text-[#01CE91] transition-colors text-left"
+                        >
+                            Services
+                            <ChevronDown size={24} className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
+                        </button>
+                        <div className={`flex flex-col gap-5 transition-all duration-300 font-bold ${servicesOpen ? 'block' : 'hidden md:flex'}`}>
+                            {['General Dentistry', 'Cosmetic Dentistry', 'Dental Implants', 'Orthodontics', 'Teeth Whitening'].map((item) => (
+                                <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
+                                    {item}
+                                </a>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
-                    {/* Contact Info */}
-                    <div className="space-y-8">
-                        <h4 className="text-xl font-bold mb-8 flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-[#01CE91]"></div>
-                            Contact Info
-                        </h4>
-                        <div className="space-y-6">
-                            <div className="flex items-start gap-4 group">
-                                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#01CE91]/20 transition-colors">
-                                    <MapPin size={22} className="text-[#01CE91]" />
+                    {/* Legal */}
+                    <div className="flex flex-col gap-8">
+                        <h4 className="text-2xl font-black text-[#1A1A1A]">Legal</h4>
+                        <div className="flex flex-col gap-5 font-bold">
+                            {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Accessibility', 'Disclaimer'].map((item) => (
+                                <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
+                                    {item}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Get in Touch */}
+                    <div className="flex flex-col gap-8">
+                        <h4 className="text-2xl font-black text-[#1A1A1A] italic">Get in touch</h4>
+
+                        <div className="flex flex-col gap-5 font-bold">
+                            <div className="flex items-center gap-5">
+                                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-md">
+                                    <Phone size={20} className="text-[#01CE91]" />
                                 </div>
-                                <div>
-                                    <p className="text-sm text-gray-400 mb-1">Our Location</p>
-                                    <p className="font-medium text-white">123 Dental Plaza, Health City, ST 56789</p>
-                                </div>
+                                <span className="text-gray-500 text-lg">+111 22 234 5566</span>
                             </div>
-                            <div className="flex items-start gap-4 group">
-                                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#01CE91]/20 transition-colors">
-                                    <Phone size={22} className="text-[#01CE91]" />
+
+                            <div className="flex items-center gap-5">
+                                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-md">
+                                    <Mail size={20} className="text-[#01CE91]" />
                                 </div>
-                                <div>
-                                    <p className="text-sm text-gray-400 mb-1">Phone Number</p>
-                                    <p className="font-medium text-white">+1 (234) 567-890</p>
-                                </div>
+                                <span className="text-gray-500 text-lg">Example@gmail.com</span>
                             </div>
-                            <div className="flex items-start gap-4 group">
-                                <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-[#01CE91]/20 transition-colors">
-                                    <Mail size={22} className="text-[#01CE91]" />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-gray-400 mb-1">Email Address</p>
-                                    <p className="font-medium text-white">hello@puresmile.com</p>
-                                </div>
+
+                            <div className="text-gray-500 text-lg leading-relaxed mt-2 italic font-medium">
+                                1 Kensington Lane, London,<br />
+                                W8 5EP (concept)
+                            </div>
+
+                            <div className="text-gray-700 text-lg font-black mt-2">
+                                Open Daily: 11:00 – 23:30
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Bar */}
-                <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <p className="text-gray-500 text-sm">
-                        &copy; {currentYear} PureSmile. All rights reserved. Built with precision.
+                {/* Big Text */}
+                <div className="overflow-hidden mb-12 flex justify-center">
+                    <h2 className="text-[20vw] md:text-[14vw] lg:text-[12.5vw] font-black text-[#01CE91] leading-none tracking-tighter text-center select-none w-full animate-pulse-slow">
+                        PURESMILE
+                    </h2>
+                </div>
+
+                {/* Copyright */}
+                <div className="text-center pt-16 border-t border-gray-200">
+                    <p className="text-gray-500 text-base font-bold">
+                        © {currentYear} PureSmile Dental Clinic. All rights reserved.
                     </p>
-                    <div className="flex items-center gap-6">
-                        <div className="flex items-center gap-2 text-gray-500 text-sm">
-                            <ShieldCheck size={16} className="text-[#01CE91]" />
-                            <span>HIPAA Compliant</span>
-                        </div>
-                        <div className="w-px h-4 bg-white/10 hidden md:block"></div>
-                        <p className="text-gray-500 text-sm">
-                            Powered by <span className="text-white font-bold">Axiom Studios</span>
-                        </p>
-                    </div>
                 </div>
             </div>
         </footer>
     );
-};
-
-export default Footer;
+}

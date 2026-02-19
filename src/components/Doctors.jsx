@@ -76,34 +76,34 @@ const Doctors = () => {
             <div className="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10">
 
                 {/* --- Header --- */}
-                <div className="text-center flex flex-col items-center mb-20">
-                    <span className="bg-[#E6FCF5] text-[#01CE91] px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                <div className="text-center flex flex-col items-center mb-24">
+                    <span className="bg-[#E6FCF5] text-[#01CE91] px-5 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-8 shadow-sm">
                         Our Doctors
                     </span>
-                    <h2 className="text-4xl md:text-6xl text-[#1A1A1A] font-medium leading-tight max-w-4xl tracking-tight">
-                        A Trusted Team of <span className="italic font-serif font-light">Modern</span> Dental Experts Focused on Your Smile
+                    <h2 className="text-4xl md:text-6xl lg:text-7xl xl:text-[5rem] text-[#1A1A1A] font-medium leading-[1.1] max-w-6xl tracking-tight">
+                        A Trusted Team of <span className="italic font-light">Modern</span> Dental Experts Focused on Your Smile
                     </h2>
-                    <p className="text-gray-500 text-lg md:text-xl mt-6 max-w-3xl leading-relaxed">
+                    <p className="text-gray-500 text-lg md:text-xl lg:text-2xl mt-8 max-w-4xl leading-relaxed">
                         Meet our highly skilled dentists - modern, empathetic professionals delivering personalized care, advanced techniques, and expert solutions tailored to every dental need.
                     </p>
                 </div>
 
                 {/* --- Doctors Carousel --- */}
-                <div className="flex items-center justify-center gap-6 lg:gap-10 overflow-visible py-10">
+                <div className="flex items-center justify-center gap-8 lg:gap-14 overflow-visible py-16">
 
                     {/* Navigation Left */}
                     <button
                         onClick={handlePrev}
-                        className="hidden lg:flex w-16 h-16 flex-shrink-0 aspect-square rounded-full bg-gradient-to-br from-[#01CE91] to-[#00B87D] text-white items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 transition-all active:scale-95 z-20 group"
+                        className="hidden lg:flex w-20 h-20 flex-shrink-0 aspect-square rounded-full bg-gradient-to-br from-[#01CE91] to-[#00B87D] text-white items-center justify-center shadow-xl hover:shadow-2xl hover:scale-110 transition-all active:scale-95 z-20 group"
                     >
                         <ArrowLeft
-                            size={26}
+                            size={32}
                             className="group-hover:-translate-x-1 transition-transform"
                         />
                     </button>
 
                     {/* Cards Container */}
-                    <div className="relative flex gap-6 md:gap-8 items-center justify-center min-h-[700px]">
+                    <div className="relative flex gap-8 md:gap-12 items-center justify-center min-h-[850px]">
                         {doctors.map((doc, index) => {
                             const isActive = index === activeIndex;
                             const isPrev = index === activeIndex - 1 || (activeIndex === 0 && index === doctors.length - 1);
@@ -114,16 +114,16 @@ const Doctors = () => {
                                     key={doc.id}
                                     onClick={() => setActiveIndex(index)}
                                     className={`relative transition-all duration-700 cursor-pointer ${isActive
-                                            ? 'w-[320px] md:w-[420px] lg:w-[460px] z-30 scale-100 opacity-100'
-                                            : isPrev || isNext
-                                                ? 'w-[240px] md:w-[320px] lg:w-[350px] z-20 scale-90 opacity-40 blur-[1px]'
-                                                : 'hidden'
+                                        ? 'w-[350px] md:w-[480px] lg:w-[540px] z-30 scale-100 opacity-100'
+                                        : isPrev || isNext
+                                            ? 'w-[260px] md:w-[350px] lg:w-[380px] z-20 scale-90 opacity-40 blur-[1px]'
+                                            : 'hidden'
                                         }`}
                                 >
                                     {/* Card Body */}
-                                    <div className={`relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-[45px] overflow-hidden transition-all duration-700 ${isActive
-                                            ? 'shadow-[0_30px_80px_rgba(1,206,145,0.2)] ring-2 ring-[#01CE91]/20'
-                                            : 'shadow-xl hover:shadow-2xl'
+                                    <div className={`relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-[56px] overflow-hidden transition-all duration-700 ${isActive
+                                        ? 'shadow-[0_40px_100px_rgba(1,206,145,0.25)] ring-2 ring-[#01CE91]/20'
+                                        : 'shadow-xl hover:shadow-2xl'
                                         }`}>
 
                                         {/* Animated Background Pattern */}
@@ -131,24 +131,24 @@ const Doctors = () => {
                                             <div className="absolute inset-0 opacity-5">
                                                 <div className="absolute inset-0" style={{
                                                     backgroundImage: `radial-gradient(circle at 2px 2px, #01CE91 1px, transparent 0)`,
-                                                    backgroundSize: '30px 30px'
+                                                    backgroundSize: '40px 40px'
                                                 }}></div>
                                             </div>
                                         )}
 
                                         {/* Top Badges */}
-                                        <div className="absolute top-6 left-6 right-6 flex justify-between items-start z-20">
+                                        <div className="absolute top-8 left-8 right-8 flex justify-between items-start z-20">
                                             {/* Experience Badge */}
                                             {isActive && (
-                                                <div className="bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2 transform -translate-x-4 opacity-0 animate-slideInLeft">
-                                                    <Award size={16} className="text-[#01CE91]" />
-                                                    <span className="text-xs font-bold text-gray-700">{doc.experience}</span>
+                                                <div className="bg-white/95 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3 transform -translate-x-4 opacity-0 animate-slideInLeft">
+                                                    <Award size={20} className="text-[#01CE91]" />
+                                                    <span className="text-sm font-bold text-gray-700">{doc.experience}</span>
                                                 </div>
                                             )}
 
                                             {/* CEO Badge */}
                                             {doc.isCEO && (
-                                                <div className={`bg-gradient-to-r ${doc.gradient} text-white px-4 py-2 rounded-2xl shadow-xl text-xs font-bold uppercase tracking-widest ${isActive ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
+                                                <div className={`bg-gradient-to-r ${doc.gradient} text-white px-5 py-3 rounded-2xl shadow-xl text-sm font-bold uppercase tracking-widest ${isActive ? 'translate-x-0 opacity-100' : 'translate-x-4 opacity-0'
                                                     } transition-all duration-500`}>
                                                     CEO & Founder
                                                 </div>
@@ -156,7 +156,7 @@ const Doctors = () => {
                                         </div>
 
                                         {/* Doctor Image */}
-                                        <div className={`relative overflow-hidden transition-all duration-700 ${isActive ? 'h-[450px] md:h-[520px]' : 'h-[380px] md:h-[450px]'
+                                        <div className={`relative overflow-hidden transition-all duration-700 ${isActive ? 'h-[500px] md:h-[600px]' : 'h-[420px] md:h-[500px]'
                                             }`}>
                                             <img
                                                 src={doc.img}
@@ -166,21 +166,21 @@ const Doctors = () => {
                                             />
 
                                             {/* Gradient Overlay */}
-                                            <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'
+                                            <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent transition-opacity duration-500 ${isActive ? 'opacity-100' : 'opacity-0'
                                                 }`}></div>
 
                                             {/* Bottom Stats Bar (Active Only) */}
                                             {isActive && (
-                                                <div className="absolute bottom-6 left-6 right-6 flex gap-2 z-20 translate-y-4 opacity-0 animate-slideInUp">
-                                                    <div className="flex-1 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg text-center">
-                                                        <Users2 size={18} className="text-[#01CE91] mx-auto mb-1" />
-                                                        <div className="text-xs font-bold text-gray-700">{doc.patients}</div>
-                                                        <div className="text-[10px] text-gray-400">Patients</div>
+                                                <div className="absolute bottom-8 left-8 right-8 flex gap-3 z-20 translate-y-6 opacity-0 animate-slideInUp">
+                                                    <div className="flex-1 bg-white/95 backdrop-blur-md px-5 py-4 rounded-2xl shadow-lg text-center">
+                                                        <Users2 size={24} className="text-[#01CE91] mx-auto mb-2" />
+                                                        <div className="text-sm font-bold text-gray-700">{doc.patients}</div>
+                                                        <div className="text-[12px] text-gray-400 font-medium">Patients</div>
                                                     </div>
-                                                    <div className="flex-1 bg-white/95 backdrop-blur-md px-4 py-3 rounded-2xl shadow-lg text-center">
-                                                        <Star size={18} className="text-yellow-500 mx-auto mb-1 fill-yellow-500" />
-                                                        <div className="text-xs font-bold text-gray-700">{doc.rating}</div>
-                                                        <div className="text-[10px] text-gray-400">Rating</div>
+                                                    <div className="flex-1 bg-white/95 backdrop-blur-md px-5 py-4 rounded-2xl shadow-lg text-center">
+                                                        <Star size={24} className="text-yellow-500 mx-auto mb-2 fill-yellow-500" />
+                                                        <div className="text-sm font-bold text-gray-700">{doc.rating}</div>
+                                                        <div className="text-[12px] text-gray-400 font-medium">Rating</div>
                                                     </div>
                                                 </div>
                                             )}
@@ -188,60 +188,60 @@ const Doctors = () => {
 
                                         {/* Active: Wavy Name Section with Details */}
                                         {isActive && (
-                                            <div className="relative bg-white pt-12 pb-8 px-8">
+                                            <div className="relative bg-white pt-16 pb-12 px-10">
                                                 {/* Wavy SVG Divider */}
                                                 <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-full">
-                                                    <svg className="relative block w-full h-[70px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                                                    <svg className="relative block w-full h-[80px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
                                                         <path d="M0,0 C150,120 350,120 500,60 C650,0 850,0 1200,120 L1200,120 L0,120 Z" fill="#FFFFFF"></path>
                                                         <path d="M0,20 C150,140 350,140 500,80 C650,20 850,20 1200,140" fill="none" stroke="#01CE91" strokeWidth="6" strokeLinecap="round"></path>
                                                     </svg>
                                                 </div>
 
                                                 {/* Name & Role */}
-                                                <div className="text-center mb-6">
-                                                    <h4 className={`text-transparent bg-clip-text bg-gradient-to-r ${doc.gradient} text-3xl font-bold tracking-tight mb-1`}>
+                                                <div className="text-center mb-8">
+                                                    <h4 className={`text-transparent bg-clip-text bg-gradient-to-r ${doc.gradient} text-4xl font-bold tracking-tight mb-2 uppercase`}>
                                                         {doc.name}
                                                     </h4>
-                                                    <p className="text-gray-600 text-base font-semibold">
+                                                    <p className="text-gray-600 text-lg font-bold">
                                                         {doc.role}
                                                     </p>
-                                                    <p className="text-gray-400 text-sm mt-1">
+                                                    <p className="text-gray-400 text-base mt-2 font-medium">
                                                         {doc.specialty}
                                                     </p>
                                                 </div>
 
                                                 {/* Achievements */}
-                                                <div className="space-y-2 mb-6">
+                                                <div className="space-y-3 mb-10">
                                                     {doc.achievements.map((achievement, idx) => (
                                                         <div
                                                             key={idx}
-                                                            className="flex items-center gap-2 text-sm text-gray-600"
+                                                            className="flex items-center gap-3 text-base text-gray-600 font-medium"
                                                             style={{
                                                                 animation: `slideInRight 0.5s ease-out ${idx * 0.1}s both`
                                                             }}
                                                         >
-                                                            <CheckCircle2 size={16} className="text-[#01CE91] flex-shrink-0" />
+                                                            <CheckCircle2 size={20} className="text-[#01CE91] flex-shrink-0" />
                                                             <span>{achievement}</span>
                                                         </div>
                                                     ))}
                                                 </div>
 
                                                 {/* CTA Button */}
-                                                <button className={`w-full bg-gradient-to-r ${doc.gradient} text-white py-4 rounded-2xl font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2 group`}>
-                                                    <Calendar size={18} />
+                                                <button className={`w-full bg-gradient-to-r ${doc.gradient} text-white py-5 rounded-[24px] font-bold text-base uppercase tracking-wider shadow-lg hover:shadow-2xl hover:scale-[1.03] transition-all flex items-center justify-center gap-3 group active:scale-95`}>
+                                                    <Calendar size={22} />
                                                     <span>Book Appointment</span>
-                                                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                                                    <ArrowRight size={22} className="group-hover:translate-x-1.5 transition-transform" />
                                                 </button>
                                             </div>
                                         )}
 
                                         {/* Inactive: Simple Name */}
                                         {!isActive && (
-                                            <div className="absolute bottom-0 left-0 w-full bg-white/90 backdrop-blur-sm py-6 px-6 text-center">
-                                                <h4 className="text-gray-700 text-xl font-bold tracking-tight">
+                                            <div className="absolute bottom-0 left-0 w-full bg-white/90 backdrop-blur-md py-8 px-8 text-center">
+                                                <h4 className="text-gray-700 text-2xl font-bold tracking-tight">
                                                     {doc.name}
                                                 </h4>
-                                                <p className="text-gray-400 text-sm font-medium mt-1">
+                                                <p className="text-gray-400 text-base font-semibold mt-1">
                                                     {doc.role}
                                                 </p>
                                             </div>
@@ -255,10 +255,10 @@ const Doctors = () => {
                     {/* Navigation Right */}
                     <button
                         onClick={handleNext}
-                        className="hidden lg:flex w-16 h-16 flex-shrink-0 aspect-square rounded-full bg-white text-gray-400 border-2 border-gray-100 items-center justify-center shadow-md hover:shadow-xl hover:border-[#01CE91] hover:text-[#01CE91] hover:scale-110 transition-all active:scale-95 z-20 group"
+                        className="hidden lg:flex w-20 h-20 flex-shrink-0 aspect-square rounded-full bg-white text-gray-400 border-2 border-gray-100 items-center justify-center shadow-md hover:shadow-xl hover:border-[#01CE91] hover:text-[#01CE91] hover:scale-110 transition-all active:scale-95 z-20 group"
                     >
                         <ArrowRight
-                            size={26}
+                            size={32}
                             className="group-hover:translate-x-1 transition-transform"
                         />
                     </button>
@@ -271,8 +271,8 @@ const Doctors = () => {
                             key={index}
                             onClick={() => setActiveIndex(index)}
                             className={`transition-all duration-300 rounded-full ${index === activeIndex
-                                    ? 'w-12 h-3 bg-gradient-to-r from-[#01CE91] to-[#00B87D]'
-                                    : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
+                                ? 'w-12 h-3 bg-gradient-to-r from-[#01CE91] to-[#00B87D]'
+                                : 'w-3 h-3 bg-gray-300 hover:bg-gray-400'
                                 }`}
                         />
                     ))}
