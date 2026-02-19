@@ -68,7 +68,7 @@ const Services = () => {
                         <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-8 inline-block">
                             Services
                         </span>
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] text-[#1A1A1A] leading-[1.1] tracking-tight font-medium">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4.5rem] text-[#1A1A1A] leading-[1.1] tracking-tight font-medium">
                             Comprehensive Dental Services Designed for Every Smile and Lifestyle
                         </h2>
                     </div>
@@ -90,7 +90,7 @@ const Services = () => {
                         return (
                             <div
                                 key={item.id}
-                                className={`${item.marginTop} ${isLeft ? 'md:justify-self-end' : 'md:justify-self-start'} ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}
+                                className={`md:${item.marginTop} ${isLeft ? 'md:justify-self-end' : 'md:justify-self-start'} ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}
                             >
                                 {/* Card with permanent rotation */}
                                 <div className={`group w-full max-w-[400px] ${item.rotation} hover:scale-[1.02] transition-transform duration-300`}>

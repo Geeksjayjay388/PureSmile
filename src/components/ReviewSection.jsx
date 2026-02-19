@@ -126,8 +126,8 @@ function StatsCard({ number, label, icon: Icon }) {
       <div className="w-16 h-16 rounded-[24px] bg-white group-hover:bg-white/20 flex items-center justify-center mb-6 transition-all duration-500 shadow-sm group-hover:rotate-6">
         <Icon size={32} className="text-[#01CE91] group-hover:text-white transition-colors duration-300" />
       </div>
-      <p className="text-4xl md:text-5xl font-black text-[#1A1A1A] group-hover:text-white mb-2 transition-colors duration-300 tracking-tight">{number}</p>
-      <p className="text-base md:text-lg font-bold text-gray-500 group-hover:text-white/90 transition-colors duration-300 uppercase tracking-widest">{label}</p>
+      <p className="text-3xl md:text-5xl font-black text-[#1A1A1A] group-hover:text-white mb-2 transition-colors duration-300 tracking-tight">{number}</p>
+      <p className="text-sm md:text-lg font-bold text-gray-500 group-hover:text-white/90 transition-colors duration-300 uppercase tracking-widest">{label}</p>
     </div>
   );
 }
@@ -218,7 +218,7 @@ export default function ReviewsSection() {
               <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                 Testimonials
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.3rem] font-medium text-[#1A1A1A] leading-[1.1] max-w-4xl tracking-tight">
+              <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4.3rem] font-medium text-[#1A1A1A] leading-[1.1] max-w-4xl tracking-tight">
                 <span className="italic font-light">Patient </span>
                 <span className="italic font-light"><span className="font-bold">Experiences</span> that reflect</span>
                 <br />

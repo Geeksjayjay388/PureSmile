@@ -73,7 +73,7 @@ const Doctors = () => {
                     <span className="bg-[#E6FCF5] text-[#01CE91] px-5 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-8 shadow-sm">
                         Our Doctors
                     </span>
-                    <h2 className="text-4xl md:text-6xl lg:text-7xl text-[#1A1A1A] font-medium leading-[1.1] max-w-6xl tracking-tight">
+                    <h2 className="text-3xl md:text-6xl lg:text-7xl text-[#1A1A1A] font-medium leading-[1.1] max-w-6xl tracking-tight">
                         A Trusted Team of <span className="italic font-light">Modern</span> Dental Experts Focused on Your Smile
                     </h2>
                     <p className="text-gray-500 text-lg md:text-xl lg:text-2xl mt-8 max-w-4xl leading-relaxed">
@@ -113,12 +113,12 @@ const Doctors = () => {
                                     animate={{
                                         scale: isActive ? 1 : 0.8,
                                         opacity: isActive ? 1 : 0.4,
-                                        x: isActive ? 0 : isPrev ? -320 : 320,
+                                        x: isActive ? 0 : isPrev ? -280 : 280,
                                         zIndex: isActive ? 30 : 20,
                                         filter: isActive ? 'blur(0px)' : 'blur(2px)'
                                     }}
-                                    transition={{ type: "spring", stiffness: 260, damping: 26 }}
-                                    className="absolute cursor-pointer w-full max-w-[480px]"
+                                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                    className="absolute cursor-pointer w-full max-w-[320px] md:max-w-[480px]"
                                 >
                                     {/* Card Body */}
                                     <div className={`relative bg-gradient-to-br from-gray-50 to-gray-100 rounded-[56px] overflow-hidden transition-shadow duration-500 ${isActive

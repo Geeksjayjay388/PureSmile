@@ -15,7 +15,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="bg-[#F5F5F5] pt-32 pb-20">
+        <footer className="bg-[#F5F5F5] pt-16 md:pt-32 pb-12 md:pb-20">
             <div className="max-w-[1700px] mx-auto px-6 md:px-8">
 
                 {/* Top Section */}
@@ -28,7 +28,7 @@ export default function Footer() {
                             <img
                                 src={logo}
                                 alt="PureSmile"
-                                className="w-64 h-64 object-contain"
+                                className="w-40 h-40 md:w-64 md:h-64 object-contain"
                             />
 
                         </div>

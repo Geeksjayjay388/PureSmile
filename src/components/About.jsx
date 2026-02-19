@@ -5,52 +5,52 @@ import teethBg from '../assets/teeths.png';
 const About = () => {
     // Unique content and icons for each interactive card
     const toothInteractions = [
-        { 
-            id: 1, x: 'left-[10%]', y: 'top-[50%]', 
-            title: "Clinical Precision", 
+        {
+            id: 1, x: 'left-[10%]', y: 'top-[50%]',
+            title: "Clinical Precision",
             desc: "Digital scanning and AI-assisted planning for 100% accuracy in every procedure.",
             icon: <ShieldCheck className="text-[#01CE91]" size={28} />
         },
-        { 
-            id: 2, x: 'left-[27.5%]', y: 'top-[50%]', 
-            title: "Patient Trust", 
+        {
+            id: 2, x: 'left-[27.5%]', y: 'top-[50%]',
+            title: "Patient Trust",
             desc: "Join over 5,000+ happy families who trust us for their lifelong dental health.",
             icon: <Heart className="text-[#01CE91]" size={28} />
         },
-        { 
-            id: 3, x: 'left-[50%]', y: 'top-[50%]', 
-            title: "7+ Years", 
+        {
+            id: 3, x: 'left-[50%]', y: 'top-[50%]',
+            title: "7+ Years",
             desc: "A legacy of excellence, serving the community with advanced dental care since 2019.",
             icon: <Clock className="text-[#01CE91]" size={28} />
         },
-        { 
-            id: 4, x: 'left-[72.5%]', y: 'top-[50%]', 
-            title: "Expert Care", 
+        {
+            id: 4, x: 'left-[72.5%]', y: 'top-[50%]',
+            title: "Expert Care",
             desc: "Our surgeons are certified by global dental boards and leading medical institutions.",
             icon: <GraduationCap className="text-[#01CE91]" size={28} />
         },
-        { 
-            id: 5, x: 'left-[90%]', y: 'top-[50%]', 
-            title: "Durability", 
+        {
+            id: 5, x: 'left-[90%]', y: 'top-[50%]',
+            title: "Durability",
             desc: "We use high-grade biocompatible ceramics that mimic natural enamel strength.",
             icon: <Sparkles className="text-[#01CE91]" size={28} />
         }
     ];
 
     return (
-        <section className="relative w-full py-24 bg-white overflow-hidden font-sans selection:bg-[#01CE91] selection:text-white">
-            <div className="max-w-[1700px] mx-auto px-4 md:px-12 lg:px-10 relative z-10">
-                
+        <section className="relative w-full py-16 md:py-24 bg-white overflow-hidden font-sans selection:bg-[#01CE91] selection:text-white">
+            <div className="max-w-[1700px] mx-auto px-6 md:px-12 lg:px-10 relative z-10">
+
                 {/* --- Top Content Section --- */}
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 lg:gap-20">
-                    
+
                     {/* Left: Headline with inline badge */}
                     <div className="max-w-5xl">
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] leading-[1.15] text-[#1A1A1A] tracking-tight">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4.5rem] leading-[1.15] text-[#1A1A1A] tracking-tight">
                             <span className="font-medium">Modern dentistry</span>{' '}
                             <span className="font-light italic">backed by years of experience, clinical precision, and deep patient trust</span>
                         </h2>
-                        
+
                         {/* About us badge positioned after the heading */}
                         <div className="mt-8">
                             <span className="inline-block bg-[#E6FCF5] text-[#01CE91] px-5 py-2 rounded-full text-xs font-bold tracking-widest uppercase shadow-sm">
@@ -68,32 +68,32 @@ const About = () => {
                 </div>
 
                 {/* --- Middle: Interactive Teeth Row --- */}
-                <div className="relative w-full h-[400px] md:h-[600px] flex items-center justify-center my-10">
-                    
+                <div className="relative w-full h-[350px] md:h-[600px] flex items-center justify-center my-6 md:my-10">
+
                     {/* Background Teeth */}
                     <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none">
-                        <img 
-                            src={teethBg} 
-                            alt="Background Teeth" 
-                            className="w-full h-full object-contain opacity-90 transform scale-90 md:scale-110 transition-transform duration-700"
+                        <img
+                            src={teethBg}
+                            alt="Background Teeth"
+                            className="w-full h-full object-contain opacity-90 transform scale-100 md:scale-110 transition-transform duration-700"
                         />
                     </div>
 
                     {/* Overlay: Interactive Plus Points */}
                     <div className="absolute inset-0 w-full h-full max-w-6xl mx-auto">
                         {toothInteractions.map((point) => (
-                            <div 
-                                key={point.id} 
+                            <div
+                                key={point.id}
                                 className={`absolute ${point.x} ${point.y} -translate-x-1/2 -translate-y-28 z-20 group`}
                             >
                                 {/* Trigger Circle */}
-                                <div className="w-24 h-24 md:w-28 md:h-28 rounded-full border-2 border-white/80 bg-white/20 backdrop-blur-md flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#01CE91] group-hover:scale-110 shadow-lg">
-                                    <Plus size={64} className="text-[#01CE91] group-hover:text-white group-hover:rotate-90 transition-all duration-500 md:w-10 md:h-10" />
+                                <div className="w-14 h-14 md:w-28 md:h-28 rounded-full border-2 border-white/80 bg-white/20 backdrop-blur-md flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-[#01CE91] group-hover:scale-110 shadow-lg">
+                                    <Plus className="text-[#01CE91] group-hover:text-white group-hover:rotate-90 transition-all duration-500 w-8 h-8 md:w-10 md:h-10" />
                                 </div>
 
                                 {/* Enhanced Detail Card */}
-                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-8 w-80 md:w-[22rem] p-8 bg-white rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.12)] opacity-0 translate-y-4 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 z-30 border border-gray-50">
-                                    
+                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-6 md:mb-8 w-72 md:w-[22rem] p-6 md:p-8 bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-[0_30px_60px_rgba(0,0,0,0.12)] opacity-0 translate-y-3 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-30 border border-gray-50">
+
                                     {/* Top Icon Block */}
                                     <div className="w-14 h-14 bg-[#F0FFF9] rounded-2xl flex items-center justify-center mb-5">
                                         {point.icon}
@@ -102,7 +102,7 @@ const About = () => {
                                     <h4 className="font-bold text-[#1A1A1A] text-2xl mb-2 tracking-tight">
                                         {point.title}
                                     </h4>
-                                    
+
                                     <p className="text-base md:text-lg text-gray-500 leading-relaxed">
                                         {point.desc}
                                     </p>
@@ -121,15 +121,15 @@ const About = () => {
 
                 {/* --- Bottom Footer Section --- */}
                 <div className="flex flex-col md:flex-row justify-between items-end md:items-center gap-10 mt-12 md:mt-0">
-                    
+
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                         <div className="flex -space-x-4">
                             {[1, 2, 3, 4].map((i) => (
                                 <div key={i} className="w-14 h-14 rounded-full border-4 border-white overflow-hidden shadow-sm bg-gray-100">
-                                    <img 
-                                        src={`https://i.pravatar.cc/150?u=dentist${i}`} 
-                                        alt="Team member" 
-                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all" 
+                                    <img
+                                        src={`https://i.pravatar.cc/150?u=dentist${i}`}
+                                        alt="Team member"
+                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
                                     />
                                 </div>
                             ))}

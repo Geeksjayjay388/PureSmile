@@ -62,7 +62,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.9, opacity: 0, y: 20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className={`relative w-full max-w-2xl bg-white rounded-[40px] shadow-2xl overflow-hidden transition-all duration-500 ${step === 2 ? 'max-w-md' : 'max-w-2xl'}`}
+                        className={`relative w-full max-w-[95%] md:max-w-2xl bg-white rounded-[32px] md:rounded-[40px] shadow-2xl overflow-hidden transition-all duration-500 ${step === 2 ? 'max-w-md' : 'max-w-2xl'}`}
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Close Button */}
@@ -229,7 +229,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                                             </motion.div>
                                         </div>
 
-                                        <h3 className="text-[3.5rem] font-bold text-gray-950 mb-4 leading-none tracking-tight">
+                                        <h3 className="text-4xl md:text-[3.5rem] font-bold text-gray-950 mb-4 leading-none tracking-tight">
                                             Thank You!
                                         </h3>
                                         <p className="text-gray-500 font-medium text-xl mb-12">

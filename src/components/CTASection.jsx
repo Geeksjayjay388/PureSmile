@@ -142,12 +142,12 @@ export default function FAQSection({ onBookClick }) {
             <div className="px-6 md:px-8 py-24 max-w-[1700px] mx-auto">
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                     {/* Left Column */}
-                    <div className="flex flex-col gap-8 lg:sticky lg:top-8 lg:self-start" style={{ minWidth: "320px", maxWidth: "480px" }}>
+                    <div className="flex flex-col gap-8 lg:sticky lg:top-8 lg:self-start w-full md:w-auto" style={{ maxWidth: "480px" }}>
                         <div>
                             <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                                 Support
                             </span>
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-[#1A1A1A] leading-[1.1] tracking-tight">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium text-[#1A1A1A] leading-[1.1] tracking-tight">
                                 <span className="italic font-light">Frequently</span> Asked
                                 <br />
                                 <span className="font-medium">Questions</span>
