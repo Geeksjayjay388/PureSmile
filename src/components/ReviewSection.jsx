@@ -32,7 +32,7 @@ function StarRating({ count, total }) {
           </svg>
         ))}
       </div>
-      <span className="text-[#01CE91] font-bold text-lg">{total}</span>
+      <span className="text-[#01CE91] font-bold text-base">{total}</span>
     </div>
   );
 }
@@ -72,7 +72,7 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
         </button>
       </div>
 
-      <p className="text-gray-600 text-base md:text-lg lg:text-xl leading-relaxed flex-1 font-medium italic">"{text}"</p>
+      <p className="text-gray-600 text-sm md:text-base lg:text-lg leading-relaxed flex-1 font-medium italic">"{text}"</p>
 
       {/* Author Info - Shown on hover */}
       <div className={`flex items-center justify-between mt-auto pt-6 border-t border-gray-100 transition-all duration-500 ${isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6 pointer-events-none'}`}>
@@ -91,8 +91,8 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
             )}
           </div>
           <div>
-            <p className="font-bold text-gray-800 text-base md:text-lg">{author}</p>
-            <p className="text-gray-400 text-sm font-medium">{time}</p>
+            <p className="font-bold text-gray-800 text-sm md:text-base">{author}</p>
+            <p className="text-gray-400 text-xs font-medium">{time}</p>
           </div>
         </div>
 
@@ -126,8 +126,8 @@ function StatsCard({ number, label, icon: Icon }) {
       <div className="w-16 h-16 rounded-[24px] bg-white group-hover:bg-white/20 flex items-center justify-center mb-6 transition-all duration-500 shadow-sm group-hover:rotate-6">
         <Icon size={32} className="text-[#01CE91] group-hover:text-white transition-colors duration-300" />
       </div>
-      <p className="text-3xl md:text-5xl font-black text-[#1A1A1A] group-hover:text-white mb-2 transition-colors duration-300 tracking-tight">{number}</p>
-      <p className="text-sm md:text-lg font-bold text-gray-500 group-hover:text-white/90 transition-colors duration-300 uppercase tracking-widest">{label}</p>
+      <p className="text-2xl md:text-4xl font-black text-[#1A1A1A] group-hover:text-white mb-2 transition-colors duration-300 tracking-tight">{number}</p>
+      <p className="text-xs md:text-base font-bold text-gray-500 group-hover:text-white/90 transition-colors duration-300 uppercase tracking-widest">{label}</p>
     </div>
   );
 }
@@ -218,14 +218,14 @@ export default function ReviewsSection() {
               <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                 Testimonials
               </span>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4.3rem] font-medium text-[#1A1A1A] leading-[1.1] max-w-4xl tracking-tight">
+              <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-[3.8rem] font-medium text-[#1A1A1A] leading-[1.1] max-w-4xl tracking-tight">
                 <span className="italic font-light">Patient </span>
                 <span className="italic font-light"><span className="font-bold">Experiences</span> that reflect</span>
                 <br />
                 <span className="font-light">Trust, Quality and Results</span>
               </h2>
             </div>
-            <p className="text-gray-500 text-lg md:text-xl lg:text-2xl max-w-md leading-relaxed">
+            <p className="text-gray-500 text-base md:text-lg lg:text-xl max-w-md leading-relaxed">
               Hear directly from our patients about their journeys, results, and why they trust our clinic for modern, comfortable, and high-quality dental care.
             </p>
           </div>

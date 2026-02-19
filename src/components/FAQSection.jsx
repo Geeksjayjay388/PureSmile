@@ -68,12 +68,12 @@ export default function FAQSection() {
                     {/* Left Column */}
                     <div className="flex flex-col gap-6" style={{ minWidth: "280px", maxWidth: "300px" }}>
                         <div>
-                            <h2 className="text-4xl font-bold text-gray-900 leading-tight">
+                            <h2 className="text-3xl font-bold text-gray-900 leading-tight">
                                 <span className="italic font-bold">Frequently</span> Asked
                                 <br />
                                 Questions
                             </h2>
-                            <p className="mt-4 text-sm text-gray-400 text-center leading-relaxed">
+                            <p className="mt-4 text-xs text-gray-400 text-center leading-relaxed">
                                 Clear answers to common concerns about comfort, timing, emergencies, insurance,
                                 and modern orthodontic treatments.
                             </p>
@@ -81,7 +81,7 @@ export default function FAQSection() {
 
                         {/* Contact Form */}
                         <div className="border border-gray-200 rounded-2xl p-5 flex flex-col gap-3">
-                            <p className="text-sm font-semibold text-gray-800">Still have a question?</p>
+                            <p className="text-xs font-semibold text-gray-800">Still have a question?</p>
                             <input
                                 type="email"
                                 placeholder="Write your email..."

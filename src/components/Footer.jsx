@@ -54,19 +54,19 @@ export default function Footer() {
 
                     {/* Right: Newsletter */}
                     <div className="lg:max-w-2xl w-full text-center lg:text-left">
-                        <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6 md:mb-8">Stay Updated</h3>
+                        <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] mb-6 md:mb-8">Stay Updated</h3>
                         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row bg-white rounded-3xl sm:rounded-full p-2 sm:p-3 shadow-lg border border-gray-100">
                             <input
                                 type="email"
                                 placeholder="Enter Your email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="flex-1 bg-transparent px-6 sm:px-8 py-4 text-base md:text-lg text-gray-700 placeholder-gray-400 outline-none font-medium"
+                                className="flex-1 bg-transparent px-6 sm:px-8 py-4 text-sm md:text-base text-gray-700 placeholder-gray-400 outline-none font-medium"
                                 required
                             />
                             <button
                                 type="submit"
-                                className="bg-[#1A1A1A] text-white text-base md:text-lg font-black px-8 sm:px-12 py-4 rounded-2xl sm:rounded-full hover:bg-black transition-all duration-300 active:scale-95 shadow-xl mt-2 sm:mt-0"
+                                className="bg-[#1A1A1A] text-white text-sm md:text-base font-black px-8 sm:px-12 py-4 rounded-2xl sm:rounded-full hover:bg-black transition-all duration-300 active:scale-95 shadow-xl mt-2 sm:mt-0"
                             >
                                 Subscribe
                             </button>
@@ -79,7 +79,7 @@ export default function Footer() {
 
                     {/* Navigation */}
                     <div className="flex flex-col gap-8">
-                        <h4 className="text-2xl font-black text-[#1A1A1A]">Navigation</h4>
+                        <h4 className="text-xl font-black text-[#1A1A1A]">Navigation</h4>
                         <div className="flex flex-col gap-5 font-bold">
                             {['Home', 'About', 'Services', 'Our Doctors', 'Reviews'].map((item) => (
                                 <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
@@ -91,7 +91,7 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="flex flex-col gap-8">
-                        <h4 className="text-2xl font-black text-[#1A1A1A]">Quick Links</h4>
+                        <h4 className="text-xl font-black text-[#1A1A1A]">Quick Links</h4>
                         <div className="flex flex-col gap-5 font-bold">
                             {['Book a Consultation', 'Insurance Information', 'Emergency Dental Care', 'Pricing'].map((item) => (
                                 <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
@@ -105,14 +105,14 @@ export default function Footer() {
                     <div className="flex flex-col gap-8">
                         <button
                             onClick={() => setServicesOpen(!servicesOpen)}
-                            className="flex items-center gap-4 text-2xl font-black text-[#1A1A1A] hover:text-[#01CE91] transition-colors text-left"
+                            className="flex items-center gap-4 text-xl font-black text-[#1A1A1A] hover:text-[#01CE91] transition-colors text-left"
                         >
                             Services
                             <ChevronDown size={24} className={`transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
                         </button>
                         <div className={`flex flex-col gap-5 transition-all duration-300 font-bold ${servicesOpen ? 'block' : 'hidden md:flex'}`}>
                             {['General Dentistry', 'Cosmetic Dentistry', 'Dental Implants', 'Orthodontics', 'Teeth Whitening'].map((item) => (
-                                <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
+                                <a key={item} href="#" className="text-gray-500 text-base md:text-lg hover:text-[#01CE91] transition-colors duration-300">
                                     {item}
                                 </a>
                             ))}
@@ -121,7 +121,7 @@ export default function Footer() {
 
                     {/* Legal */}
                     <div className="flex flex-col gap-8">
-                        <h4 className="text-2xl font-black text-[#1A1A1A]">Legal</h4>
+                        <h4 className="text-xl font-black text-[#1A1A1A]">Legal</h4>
                         <div className="flex flex-col gap-5 font-bold">
                             {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'Accessibility', 'Disclaimer'].map((item) => (
                                 <a key={item} href="#" className="text-gray-500 text-lg md:text-xl hover:text-[#01CE91] transition-colors duration-300">
@@ -133,29 +133,29 @@ export default function Footer() {
 
                     {/* Get in Touch */}
                     <div className="flex flex-col gap-8">
-                        <h4 className="text-2xl font-black text-[#1A1A1A] italic">Get in touch</h4>
+                        <h4 className="text-xl font-black text-[#1A1A1A] italic">Get in touch</h4>
 
                         <div className="flex flex-col gap-5 font-bold">
                             <div className="flex items-center gap-5">
                                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-md">
                                     <Phone size={20} className="text-[#01CE91]" />
                                 </div>
-                                <span className="text-gray-500 text-lg">+111 22 234 5566</span>
+                                <span className="text-gray-500 text-base">+111 22 234 5566</span>
                             </div>
 
                             <div className="flex items-center gap-5">
                                 <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shrink-0 shadow-md">
                                     <Mail size={20} className="text-[#01CE91]" />
                                 </div>
-                                <span className="text-gray-500 text-lg">Example@gmail.com</span>
+                                <span className="text-gray-500 text-base">Example@gmail.com</span>
                             </div>
 
-                            <div className="text-gray-500 text-lg leading-relaxed mt-2 italic font-medium">
+                            <div className="text-gray-500 text-base leading-relaxed mt-2 italic font-medium">
                                 1 Kensington Lane, London,<br />
                                 W8 5EP (concept)
                             </div>
 
-                            <div className="text-gray-700 text-lg font-black mt-2">
+                            <div className="text-gray-700 text-base font-black mt-2">
                                 Open Daily: 11:00 – 23:30
                             </div>
                         </div>
@@ -164,7 +164,7 @@ export default function Footer() {
 
                 {/* Big Text */}
                 <div className="overflow-hidden mb-12 flex justify-center">
-                    <h2 className="text-[20vw] md:text-[14vw] lg:text-[12.5vw] font-black text-[#01CE91] leading-none tracking-tighter text-center select-none w-full animate-pulse-slow">
+                    <h2 className="text-[18vw] md:text-[12vw] lg:text-[10vw] font-black text-[#01CE91] leading-none tracking-tighter text-center select-none w-full animate-pulse-slow">
                         PURESMILE
                     </h2>
                 </div>
@@ -176,6 +176,6 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
-        </footer>
+        </footer >
     );
 }

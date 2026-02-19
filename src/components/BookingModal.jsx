@@ -78,7 +78,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                             {step === 1 && (
                                 <div className="hidden md:flex md:w-[40%] bg-[#01CE91] p-10 flex-col justify-between text-white relative overflow-hidden">
                                     <div className="relative z-10">
-                                        <h3 className="text-3xl font-black leading-tight mb-4">Start Your <br />Journey Today</h3>
+                                        <h3 className="text-2xl font-black leading-tight mb-4">Start Your <br />Journey Today</h3>
                                         <p className="text-white/80 font-medium leading-relaxed">
                                             Join over 2,500+ happy patients who trust PureSmile for their dental care.
                                         </p>
@@ -94,7 +94,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                                                 <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-lg shadow-black/5">
                                                     <CheckCircle2 size={16} className="text-[#01CE91]" />
                                                 </div>
-                                                <p className="font-bold text-sm tracking-tight">{benefit}</p>
+                                                <p className="font-bold text-xs tracking-tight">{benefit}</p>
                                             </div>
                                         ))}
                                     </div>
@@ -114,7 +114,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                                         exit={{ opacity: 0, x: -20 }}
                                     >
                                         <div className="mb-8">
-                                            <h2 className="text-3xl font-black text-gray-900 mb-2 font-sans tracking-tight">Book Now</h2>
+                                            <h2 className="text-2xl font-black text-gray-900 mb-2 font-sans tracking-tight">Book Now</h2>
                                             <div className="w-12 h-1.5 bg-[#01CE91] rounded-full" />
                                         </div>
 
@@ -188,7 +188,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                                             <button
                                                 type="submit"
                                                 disabled={!isFormValid || isSubmitting}
-                                                className={`w-full py-5 rounded-2xl font-black text-lg transition-all duration-300 shadow-xl flex items-center justify-center gap-3 group relative overflow-hidden ${isFormValid
+                                                className={`w-full py-5 rounded-2xl font-black text-base transition-all duration-300 shadow-xl flex items-center justify-center gap-3 group relative overflow-hidden ${isFormValid
                                                     ? 'bg-[#1A1A1A] text-white hover:bg-black active:scale-95 shadow-black/10'
                                                     : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
                                                     }`}
@@ -229,10 +229,10 @@ const BookingModal = ({ isOpen, onClose }) => {
                                             </motion.div>
                                         </div>
 
-                                        <h3 className="text-4xl md:text-[3.5rem] font-bold text-gray-950 mb-4 leading-none tracking-tight">
+                                        <h3 className="text-3xl md:text-[3rem] font-bold text-gray-950 mb-4 leading-none tracking-tight">
                                             Thank You!
                                         </h3>
-                                        <p className="text-gray-500 font-medium text-xl mb-12">
+                                        <p className="text-gray-500 font-medium text-lg mb-12">
                                             Your Request Has Been Sent
                                         </p>
 

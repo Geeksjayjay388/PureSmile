@@ -56,7 +56,7 @@ const HeroSection = ({ onBookClick }) => {
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className="relative z-10 max-w-3xl text-center md:text-left flex flex-col items-center md:items-start"
                 >
-                    <h1 className="text-5xl md:text-8xl lg:text-[6.3rem] leading-[1.1] tracking-tight text-[#01CE91] font-medium">
+                    <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.1] tracking-tight text-[#01CE91] font-medium">
                         Modern dentistry
                     </h1>
 
@@ -65,7 +65,7 @@ const HeroSection = ({ onBookClick }) => {
                         onClick={onBookClick}
                         className="group mt-8 md:mt-10 flex items-center gap-3 bg-[#1A1A1A] text-white pl-6 pr-2 py-3 rounded-full hover:bg-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                     >
-                        <span className="font-medium text-lg md:text-xl">Book a Consultation</span>
+                        <span className="font-medium text-base md:text-lg">Book a Consultation</span>
                         <div className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center group-hover:bg-[#01CE91] group-hover:text-white transition-colors">
                             <ArrowUpRight size={20} />
                         </div>
@@ -79,14 +79,14 @@ const HeroSection = ({ onBookClick }) => {
                     transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
                     className="mt-24 md:mt-10 flex flex-col items-center md:items-end text-center md:text-right relative z-10"
                 >
-                    <h2 className="text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-[#1A1A1A]">
+                    <h2 className="text-3xl md:text-6xl lg:text-[4.8rem] leading-[1.1] text-[#1A1A1A]">
                         <span className="font-sans italic">for a confident,</span>
                         <br />
                         <span className="font-sans font-bold text-[#01CE91] not-italic mr-4">healthy</span>
                         <span className="font-sans italic ">smile</span>
                     </h2>
 
-                    <p className="mt-4 md:mt-1 max-w-sm text-gray-500 leading-relaxed text-lg md:text-2xl font-lightbold">
+                    <p className="mt-4 md:mt-1 max-w-sm text-gray-500 leading-relaxed text-base md:text-xl font-lightbold">
                         Innovative technologies, pain-free <br />treatments, and personalized care<br /> for adults and children
                     </p>
                 </motion.div>

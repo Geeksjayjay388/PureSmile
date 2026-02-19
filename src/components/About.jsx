@@ -46,7 +46,7 @@ const About = () => {
 
                     {/* Left: Headline with inline badge */}
                     <div className="max-w-5xl">
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4.5rem] leading-[1.15] text-[#1A1A1A] tracking-tight">
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-[4rem] leading-[1.15] text-[#1A1A1A] tracking-tight">
                             <span className="font-medium">Modern dentistry</span>{' '}
                             <span className="font-light italic">backed by years of experience, clinical precision, and deep patient trust</span>
                         </h2>
@@ -61,7 +61,7 @@ const About = () => {
 
                     {/* Right: Description */}
                     <div className="max-w-md lg:max-w-lg">
-                        <p className="text-gray-400 text-base md:text-lg lg:text-xl leading-relaxed">
+                        <p className="text-gray-400 text-sm md:text-base lg:text-lg leading-relaxed">
                             Explore the experience, certifications, and proven outcomes behind our modern approach to dentistry, trusted by thousands of patients over the years.
                         </p>
                     </div>
@@ -99,11 +99,11 @@ const About = () => {
                                         {point.icon}
                                     </div>
 
-                                    <h4 className="font-bold text-[#1A1A1A] text-2xl mb-2 tracking-tight">
+                                    <h4 className="font-bold text-[#1A1A1A] text-xl mb-2 tracking-tight">
                                         {point.title}
                                     </h4>
 
-                                    <p className="text-base md:text-lg text-gray-500 leading-relaxed">
+                                    <p className="text-sm md:text-base text-gray-500 leading-relaxed">
                                         {point.desc}
                                     </p>
 
@@ -135,14 +135,14 @@ const About = () => {
                             ))}
                         </div>
                         <div className="pl-6 border-l-2 border-[#01CE91] max-w-sm">
-                            <p className="text-gray-400 italic text-lg leading-snug">
+                            <p className="text-gray-400 italic text-base leading-snug">
                                 "Our team helps you and your teeth shine with health, confidence, and modern aesthetics."
                             </p>
                         </div>
                     </div>
 
                     <button className="group flex items-center gap-4 bg-[#1A1A1A] text-white pl-8 pr-2 py-2 rounded-full hover:bg-black transition-all shadow-xl active:scale-95">
-                        <span className="font-semibold text-lg">Explore more</span>
+                        <span className="font-semibold text-base">Explore more</span>
                         <div className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center group-hover:bg-[#01CE91] group-hover:text-white transition-all">
                             <ArrowUpRight size={24} />
                         </div>

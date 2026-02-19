@@ -71,7 +71,7 @@ function Navbar({ onBookClick }) {
                                 className={`px-7 py-3 rounded-full cursor-pointer font-light transition-all duration-300 relative group ${isActive ? 'bg-black text-white shadow-lg' : 'text-gray-600 hover:text-[#01CE91]'
                                     }`}
                             >
-                                <a href={link.href} className="relative z-10 text-xl">{link.name}</a>
+                                <a href={link.href} className="relative z-10 text-lg">{link.name}</a>
                                 {!isActive && (
                                     <span className="absolute inset-0 bg-gray-100/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
                                 )}
@@ -82,7 +82,7 @@ function Navbar({ onBookClick }) {
             </section>
 
             {/* Action Buttons - Desktop */}
-            <section className="hidden lg:flex gap-4 text-xl">
+            <section className="hidden lg:flex gap-4 text-lg">
                 <button className={`px-10 py-3.5 rounded-full font-light shadow-sm transition-all duration-300 border ${isScrolled ? 'bg-white text-black border-gray-100 hover:bg-gray-50' : 'bg-white/10 text-black border-white/20 backdrop-blur-md hover:bg-white/20'
                     }`}>
                     Log in
@@ -118,7 +118,7 @@ function Navbar({ onBookClick }) {
                                 <li key={link.id} onClick={() => setIsMenuOpen(false)}>
                                     <a
                                         href={link.href}
-                                        className={`text-4xl font-black uppercase tracking-tight ${activeSection === link.id ? 'text-[#01CE91]' : 'text-gray-900'
+                                        className={`text-3xl font-black uppercase tracking-tight ${activeSection === link.id ? 'text-[#01CE91]' : 'text-gray-900'
                                             }`}
                                     >
                                         {link.name}
@@ -128,7 +128,7 @@ function Navbar({ onBookClick }) {
                         </ul>
 
                         <div className="mt-auto space-y-4">
-                            <button className="w-full py-5 rounded-2xl bg-gray-100 text-gray-900 text-xl font-bold">
+                            <button className="w-full py-5 rounded-2xl bg-gray-100 text-gray-900 text-lg font-bold">
                                 Log in
                             </button>
                             <button
@@ -136,7 +136,7 @@ function Navbar({ onBookClick }) {
                                     setIsMenuOpen(false);
                                     onBookClick();
                                 }}
-                                className="w-full py-5 rounded-2xl bg-[#01CE91] text-white text-xl font-bold shadow-xl shadow-[#01CE91]/20"
+                                className="w-full py-5 rounded-2xl bg-[#01CE91] text-white text-lg font-bold shadow-xl shadow-[#01CE91]/20"
                             >
                                 Book Now
                             </button>

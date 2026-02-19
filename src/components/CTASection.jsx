@@ -44,7 +44,7 @@ function FAQItem({ question, answer, open, onClick, index }) {
                     <span className={`text-sm font-black w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${open ? "bg-[#01CE91] text-white rotate-[360deg]" : "bg-gray-100 text-gray-400 group-hover:bg-[#01CE91]/10 group-hover:text-[#01CE91]"}`}>
                         0{index + 1}
                     </span>
-                    <span className={`text-base md:text-lg lg:text-xl font-bold transition-all duration-300 ${open ? "text-gray-900" : "text-gray-700 group-hover:text-[#01CE91]"}`}>
+                    <span className={`text-sm md:text-base lg:text-lg font-bold transition-all duration-300 ${open ? "text-gray-900" : "text-gray-700 group-hover:text-[#01CE91]"}`}>
                         {question}
                     </span>
                 </div>
@@ -63,7 +63,7 @@ function FAQItem({ question, answer, open, onClick, index }) {
             <div className={`grid transition-all duration-500 ease-out ${open ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"}`}>
                 <div className="overflow-hidden">
                     <div className="pl-16 pr-4 pb-4">
-                        <p className="text-base md:text-lg text-gray-500 leading-relaxed font-medium">{answer}</p>
+                        <p className="text-sm md:text-base text-gray-500 leading-relaxed font-medium">{answer}</p>
 
                         {/* Helpful actions that appear when open */}
                         <div className={`flex items-center gap-4 mt-8 transition-all duration-500 delay-100 ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
@@ -97,12 +97,12 @@ function CTASection({ onBookClick }) {
 
                     {/* Content */}
                     <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-6xl lg:text-5xl font-medium text-white leading-tight mb-4">
+                        <h2 className="text-2xl md:text-5xl lg:text-4xl font-medium text-white leading-tight mb-4">
                             <span className="italic font-light">Book Your Dental </span>
                             <span className="italic font-light">Consultation</span>
                             <span className="font-medium"> Today</span>
                         </h2>
-                        <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-lg mx-auto">
+                        <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-lg mx-auto">
                             Quick, comfortable, and personalized care from experienced professionals using modern dental technologies.
                         </p>
 
@@ -110,7 +110,7 @@ function CTASection({ onBookClick }) {
                             onClick={onBookClick}
                             className="group inline-flex items-center gap-4 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white pl-8 pr-3 py-3 rounded-full transition-all duration-500 hover:shadow-2xl hover:shadow-black/40 hover:-translate-y-1 active:scale-95"
                         >
-                            <span className="font-light text-lg lg:text-xl tracking-wider">Book a Consultation</span>
+                            <span className="font-light text-base lg:text-lg tracking-wider">Book a Consultation</span>
                             <div className="w-12 h-12 bg-[#01CE91] rounded-full flex items-center justify-center group-hover:bg-white transition-all duration-500 group-hover:rotate-45">
                                 <ArrowUpRight size={22} className="text-white group-hover:text-[#01CE91]" />
                             </div>
@@ -147,12 +147,12 @@ export default function FAQSection({ onBookClick }) {
                             <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                                 Support
                             </span>
-                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-medium text-[#1A1A1A] leading-[1.1] tracking-tight">
+                            <h2 className="text-2xl md:text-4xl lg:text-5xl font-medium text-[#1A1A1A] leading-[1.1] tracking-tight">
                                 <span className="italic font-light">Frequently</span> Asked
                                 <br />
                                 <span className="font-medium">Questions</span>
                             </h2>
-                            <p className="mt-8 text-lg md:text-xl text-gray-500 leading-relaxed">
+                            <p className="mt-8 text-base md:text-lg text-gray-500 leading-relaxed">
                                 Clear answers to common concerns about comfort, timing, emergencies, insurance,
                                 and modern orthodontic treatments.
                             </p>
@@ -165,7 +165,7 @@ export default function FAQSection({ onBookClick }) {
                                     <Mail size={24} className="text-[#01CE91]" />
                                 </div>
                                 <div>
-                                    <p className="text-lg font-bold text-gray-800">Still have a question?</p>
+                                    <p className="text-base font-bold text-gray-800">Still have a question?</p>
                                     <p className="text-sm text-gray-400">We'll get back to you within 24h</p>
                                 </div>
                             </div>

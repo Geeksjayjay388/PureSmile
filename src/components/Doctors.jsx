@@ -73,10 +73,10 @@ const Doctors = () => {
                     <span className="bg-[#E6FCF5] text-[#01CE91] px-5 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-8 shadow-sm">
                         Our Doctors
                     </span>
-                    <h2 className="text-3xl md:text-6xl lg:text-7xl text-[#1A1A1A] font-medium leading-[1.1] max-w-6xl tracking-tight">
+                    <h2 className="text-2xl md:text-5xl lg:text-6xl text-[#1A1A1A] font-medium leading-[1.1] max-w-6xl tracking-tight">
                         A Trusted Team of <span className="italic font-light">Modern</span> Dental Experts Focused on Your Smile
                     </h2>
-                    <p className="text-gray-500 text-lg md:text-xl lg:text-2xl mt-8 max-w-4xl leading-relaxed">
+                    <p className="text-gray-500 text-base md:text-lg lg:text-xl mt-8 max-w-4xl leading-relaxed">
                         Meet our highly skilled dentists - modern, empathetic professionals delivering personalized care, advanced techniques, and expert solutions tailored to every dental need.
                     </p>
                 </div>
@@ -177,11 +177,11 @@ const Doctors = () => {
                                                     </div>
 
                                                     <div className="text-center mb-8">
-                                                        <h4 className={`text-transparent bg-clip-text bg-gradient-to-r ${doc.gradient} text-3xl md:text-4xl font-bold tracking-tight mb-2 uppercase`}>
+                                                        <h4 className={`text-transparent bg-clip-text bg-gradient-to-r ${doc.gradient} text-2xl md:text-3xl font-bold tracking-tight mb-2 uppercase`}>
                                                             {doc.name}
                                                         </h4>
-                                                        <p className="text-gray-600 text-lg font-bold">{doc.role}</p>
-                                                        <p className="text-gray-400 text-base mt-1 font-medium italic">{doc.specialty}</p>
+                                                        <p className="text-gray-600 text-base font-bold">{doc.role}</p>
+                                                        <p className="text-gray-400 text-sm mt-1 font-medium italic">{doc.specialty}</p>
                                                     </div>
 
                                                     <div className="space-y-3 mb-10">
@@ -191,7 +191,7 @@ const Doctors = () => {
                                                                 initial={{ opacity: 0, x: 20 }}
                                                                 animate={{ opacity: 1, x: 0 }}
                                                                 transition={{ delay: 0.1 * idx }}
-                                                                className="flex items-center gap-3 text-base text-gray-600 font-light"
+                                                                className="flex items-center gap-3 text-sm text-gray-600 font-light"
                                                             >
                                                                 <CheckCircle2 size={18} className="text-[#01CE91] flex-shrink-0" />
                                                                 <span>{achievement}</span>
@@ -199,7 +199,7 @@ const Doctors = () => {
                                                         ))}
                                                     </div>
 
-                                                    <button className={`w-full bg-gradient-to-r ${doc.gradient} text-white py-4 rounded-[20px] font-bold text-base uppercase tracking-wider shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 group active:scale-95`}>
+                                                    <button className={`w-full bg-gradient-to-r ${doc.gradient} text-white py-4 rounded-[20px] font-bold text-sm uppercase tracking-wider shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3 group active:scale-95`}>
                                                         <Calendar size={20} />
                                                         <span>Book Appointment</span>
                                                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />

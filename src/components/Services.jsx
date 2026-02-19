@@ -68,14 +68,14 @@ const Services = () => {
                         <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-8 inline-block">
                             Services
                         </span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-[4.5rem] text-[#1A1A1A] leading-[1.1] tracking-tight font-medium">
+                        <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-[4rem] text-[#1A1A1A] leading-[1.1] tracking-tight font-medium">
                             Comprehensive Dental Services Designed for Every Smile and Lifestyle
                         </h2>
                     </div>
 
                     {/* Right: Description */}
                     <div className="max-w-md lg:pt-14">
-                        <p className="text-gray-500 text-lg md:text-xl lg:text-2xl leading-relaxed">
+                        <p className="text-gray-500 text-base md:text-lg lg:text-xl leading-relaxed">
                             From general dentistry and cosmetic treatments to orthodontics, implants, and whitening – we provide modern solutions for healthy, confident smiles at every stage.
                         </p>
                     </div>
@@ -118,10 +118,10 @@ const Services = () => {
 
                                         {/* Content */}
                                         <div className="text-center pt-5 pb-6 px-4">
-                                            <h3 className="text-[28px] font-medium text-[#1A1A1A] mb-3 italic">
+                                            <h3 className="text-[24px] font-medium text-[#1A1A1A] mb-3 italic">
                                                 {item.title}
                                             </h3>
-                                            <p className="text-gray-500 text-base md:text-lg leading-relaxed">
+                                            <p className="text-gray-500 text-sm md:text-base leading-relaxed">
                                                 {item.desc}
                                             </p>
                                         </div>
@@ -135,7 +135,7 @@ const Services = () => {
                 {/* --- Bottom CTA --- */}
                 <div className="flex justify-center mt-32 lg:mt-40">
                     <button className="group flex items-center gap-4 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white pl-8 pr-2 py-2 rounded-full transition-all duration-300 shadow-xl active:scale-95">
-                        <span className="font-semibold text-lg pl-2">Explore more</span>
+                        <span className="font-semibold text-base pl-2">Explore more</span>
                         <div className="w-12 h-12 bg-[#01CE91] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                             <span className="text-white text-sm font-bold">M</span>
                         </div>

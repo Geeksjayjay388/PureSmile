@@ -75,7 +75,7 @@ const LoadingScreen = () => {
                     initial={{ y: 40, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.4, ease: "easeOut" }}
-                    className="text-4xl font-black text-[#1A1A1A] tracking-tighter uppercase"
+                    className="text-3xl font-black text-[#1A1A1A] tracking-tighter uppercase"
                 >
                     Pure<span className="text-[#01CE91]">Smile</span>
                 </motion.h1>
