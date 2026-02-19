@@ -96,13 +96,13 @@ function CTASection({ onBookClick }) {
                     </div>
 
                     {/* Content */}
-                    <div className="relative z-10 text-center px-6 max-w-2xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-tight mb-4">
+                    <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+                        <h2 className="text-3xl md:text-6xl lg:text-5xl font-medium text-white leading-tight mb-4">
                             <span className="italic font-light">Book Your Dental </span>
                             <span className="italic font-light">Consultation</span>
                             <span className="font-medium"> Today</span>
                         </h2>
-                        <p className="text-white/80 text-sm md:text-base leading-relaxed mb-8 max-w-lg mx-auto">
+                        <p className="text-white/80 text-lg md:text-xl leading-relaxed mb-8 max-w-lg mx-auto">
                             Quick, comfortable, and personalized care from experienced professionals using modern dental technologies.
                         </p>
 
@@ -110,7 +110,7 @@ function CTASection({ onBookClick }) {
                             onClick={onBookClick}
                             className="group inline-flex items-center gap-4 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white pl-8 pr-3 py-3 rounded-full transition-all duration-500 hover:shadow-2xl hover:shadow-black/40 hover:-translate-y-1 active:scale-95"
                         >
-                            <span className="font-black text-lg lg:text-xl uppercase tracking-wider">Book a Consultation</span>
+                            <span className="font-light text-lg lg:text-xl tracking-wider">Book a Consultation</span>
                             <div className="w-12 h-12 bg-[#01CE91] rounded-full flex items-center justify-center group-hover:bg-white transition-all duration-500 group-hover:rotate-45">
                                 <ArrowUpRight size={22} className="text-white group-hover:text-[#01CE91]" />
                             </div>

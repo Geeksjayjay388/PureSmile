@@ -218,11 +218,11 @@ export default function ReviewsSection() {
               <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                 Testimonials
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.5rem] font-medium text-[#1A1A1A] leading-[1.1] max-w-4xl tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4.3rem] font-medium text-[#1A1A1A] leading-[1.1] max-w-4xl tracking-tight">
                 <span className="italic font-light">Patient </span>
                 <span className="italic font-light"><span className="font-bold">Experiences</span> that reflect</span>
                 <br />
-                <span className="font-light">Trust, Quality, and Results</span>
+                <span className="font-light">Trust, Quality and Results</span>
               </h2>
             </div>
             <p className="text-gray-500 text-lg md:text-xl lg:text-2xl max-w-md leading-relaxed">

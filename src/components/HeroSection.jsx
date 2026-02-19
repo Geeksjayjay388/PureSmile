@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ArrowUpRight, Play, MapPin } from 'lucide-react';
 import heroImage from '../assets/herotooth.png';
 import video from '../assets/video-thumbnail.png';
-import BookingModal from './BookingModal';
 
 const LocationPointer = ({ city, address, className }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -19,7 +18,7 @@ const LocationPointer = ({ city, address, className }) => {
                 </div>
                 <div className="flex flex-col">
                     <span className="text-lg font-black text-[#1A1A1A] leading-none uppercase tracking-wider">{city}</span>
-                    <div className={`grid transition-all duration-500 ease-in-out ${isHovered ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0'}`}>
+                    <div className={`grid transition-all duration-500 ease-in-out ${isHovered ? 'grid-rows-[1fr] mt-2 opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                         <div className="overflow-hidden">
                             <span className="text-sm font-bold text-gray-500 whitespace-nowrap">{address}</span>
                         </div>
@@ -32,62 +31,62 @@ const LocationPointer = ({ city, address, className }) => {
 
 const HeroSection = ({ onBookClick }) => {
     return (
-        <div className="min-h-screen font-sans selection:text-white overflow-hidden relative">
+        <div id="home" className="min-h-screen font-sans selection:text-white overflow-hidden relative">
             {/* --- Main Hero Content --- */}
-            <main className="relative w-full max-w-[1700px] mx-auto md:px-12 lg:px-10 pt-10 md:pt-15 pb-32">
+            <main className="relative w-full max-w-[1700px] mx-auto md:px-12 lg:px-10 pt-32 md:pt-40 pb-32">
 
                 {/* Background Image - CENTERED */}
-                <div className="absolute top-3/5 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-60 pointer-events-none z-0 transform scale-125 md:scale-150">
+                <div className="absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-60 pointer-events-none z-0 transform scale-125 md:scale-150">
                     <img
                         src={heroImage}
                         alt="Background Tooth"
-                        className="w-full h- object-contain"
+                        className="w-full h-auto object-contain"
                     />
                 </div>
 
                 {/* Left Section: Main Heading & CTA */}
-                <div className="relative z-10 max-w-2xl">
-                    <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[7rem] leading-[1.05] tracking-tighter text-[#01CE91] font-black uppercase">
-                        Modern <br />dentistry
+                <div className="relative z-10 max-w-3xl">
+                    <h1 className="text-6xl md:text-8xl lg:text-[6.3rem] leading-[1.1] tracking-tight text-[#01CE91] font-medium">
+                        Modern dentistry
                     </h1>
 
                     {/* Book Consultation Button */}
                     <button
                         onClick={onBookClick}
-                        className="group mt-12 flex items-center gap-4 bg-[#1A1A1A] text-white pl-8 pr-3 py-3.5 rounded-full hover:bg-black transition-all shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:scale-95"
+                        className="group mt-10 flex items-center gap-3 bg-[#1A1A1A] text-white pl-6 pr-2 py-3 rounded-full hover:bg-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                     >
-                        <span className="font-black text-xl lg:text-2xl uppercase tracking-tighter">Book a Consultation</span>
-                        <div className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center group-hover:bg-[#01CE91] group-hover:text-white transition-all duration-500 group-hover:rotate-45">
-                            <ArrowUpRight size={26} />
+                        <span className="font-medium text-xl">Book a Consultation</span>
+                        <div className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center group-hover:bg-[#01CE91] group-hover:text-white transition-colors">
+                            <ArrowUpRight size={20} />
                         </div>
                     </button>
                 </div>
 
                 {/* Right Section: Catchphrase */}
-                <div className="mt-20 md:mt-10 flex flex-col items-end text-right relative z-10">
-                    <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[1.05] text-[#1A1A1A] font-black uppercase tracking-tighter">
-                        <span className="italic font-light">for a</span> <span className="text-[#01CE91]">confident,</span>
+                <div className="mt-15 md:mt-10 flex flex-col items-end text-right relative z-10">
+                    <h2 className="text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.1] text-[#1A1A1A]">
+                        <span className="font-sans italic">for a confident,</span>
                         <br />
-                        <span className="font-bold text-[#01CE91] not-italic mr-4 leading-none">healthy</span>
-                        <span className="italic font-light">smile</span>
+                        <span className="font-sans font-bold text-[#01CE91] not-italic mr-4">healthy</span>
+                        <span className="font-sans italic ">smile</span>
                     </h2>
 
-                    <p className="mt-4 max-w-md text-gray-500 leading-relaxed text-lg md:text-2xl font-bold italic">
+                    <p className="mt-1 max-w-sm text-gray-500 leading-relaxed text-base md:text-2xl font-lightbold">
                         Innovative technologies, pain-free <br />treatments, and personalized care<br /> for adults and children
                     </p>
                 </div>
 
                 {/* Prefix with a minus sign to go below the container boundary */}
-                <div className="absolute -bottom-20 right-5 md:right-15 lg:right-5 z-20">
-                    <div className="relative w-72 h-44 md:w-96 md:h-56 bg-gray-900 rounded-[40px] overflow-hidden border-8 border-white shadow-2xl transition-all duration-700 cursor-pointer group hover:scale-105 hover:rotate-2">
+                <div className="absolute -bottom-18 right-5 md:right-15 lg:right-5 z-20">
+                    <div className="relative w-64 h-40 md:w-80 md:h-48 bg-gray-900 rounded-3xl overflow-hidden border-4 border-white shadow-2xl transition-transform duration-500 cursor-pointer group">
                         <img
                             src={video}
                             alt="Dentist"
-                            className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-700"
+                            className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-16 h-16 bg-white/20 backdrop-blur-xl rounded-full flex items-center justify-center group-hover:scale-125 group-hover:bg-[#01CE91] transition-all duration-700">
-                                <Play size={28} className="text-white fill-white ml-1" />
+                            <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                                <Play size={20} className="text-white fill-white ml-1" />
                             </div>
                         </div>
                     </div>
@@ -120,4 +119,4 @@ const HeroSection = ({ onBookClick }) => {
     );
 };
 
-
+export default HeroSection;
