@@ -19,7 +19,7 @@ export default function Footer() {
             <div className="max-w-[1700px] mx-auto px-6 md:px-8">
 
                 {/* Top Section */}
-                <div className="flex flex-col lg:flex-row justify-between gap-20 lg:gap-40 mb-32">
+                <div className="flex flex-col lg:flex-row justify-between gap-12 lg:gap-40 mb-16 md:mb-32">
 
                     {/* Left: Logo and Social */}
                     <div className="flex flex-col gap-10">
@@ -54,20 +54,20 @@ export default function Footer() {
                     </div>
 
                     {/* Right: Newsletter */}
-                    <div className="lg:max-w-2xl w-full">
-                        <h3 className="text-3xl font-bold text-[#1A1A1A] mb-8">Stay Updated</h3>
-                        <form onSubmit={handleSubmit} className="flex bg-white rounded-full p-3 shadow-lg border border-gray-100">
+                    <div className="lg:max-w-2xl w-full text-center lg:text-left">
+                        <h3 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-6 md:mb-8">Stay Updated</h3>
+                        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row bg-white rounded-3xl sm:rounded-full p-2 sm:p-3 shadow-lg border border-gray-100">
                             <input
                                 type="email"
                                 placeholder="Enter Your email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="flex-1 bg-transparent px-8 py-4 text-lg text-gray-700 placeholder-gray-400 outline-none font-medium"
+                                className="flex-1 bg-transparent px-6 sm:px-8 py-4 text-base md:text-lg text-gray-700 placeholder-gray-400 outline-none font-medium"
                                 required
                             />
                             <button
                                 type="submit"
-                                className="bg-[#1A1A1A] text-white text-lg font-black px-12 py-4 rounded-full hover:bg-black transition-all duration-300 active:scale-95 shadow-xl"
+                                className="bg-[#1A1A1A] text-white text-base md:text-lg font-black px-8 sm:px-12 py-4 rounded-2xl sm:rounded-full hover:bg-black transition-all duration-300 active:scale-95 shadow-xl mt-2 sm:mt-0"
                             >
                                 Subscribe
                             </button>
@@ -76,7 +76,7 @@ export default function Footer() {
                 </div>
 
                 {/* Links Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-16 lg:gap-24 mb-32">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-24 mb-16 md:mb-32">
 
                     {/* Navigation */}
                     <div className="flex flex-col gap-8">
