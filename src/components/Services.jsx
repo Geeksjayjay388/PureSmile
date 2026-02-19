@@ -1,5 +1,5 @@
 import React from 'react';
-import { Activity, ShieldPlus, Sparkles, Stethoscope, Zap } from 'lucide-react';
+import { Activity, ShieldPlus, Sparkles, Stethoscope, Zap, ArrowRight } from 'lucide-react';
 import service1 from '../assets/1.png';
 import service2 from '../assets/2.png';
 import service3 from '../assets/3.png';
@@ -137,7 +137,7 @@ const Services = () => {
                     <button className="group flex items-center gap-4 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white pl-8 pr-2 py-2 rounded-full transition-all duration-300 shadow-xl active:scale-95">
                         <span className="font-semibold text-base pl-2">Explore more</span>
                         <div className="w-12 h-12 bg-[#01CE91] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                            <span className="text-white text-sm font-bold">M</span>
+                            <span className="text-white text-sm font-bold"><ArrowRight /></span>
                         </div>
                     </button>
                 </div>
