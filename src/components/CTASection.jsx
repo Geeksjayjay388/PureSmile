@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Plus, X, ArrowUpRight, Mail, MessageSquare } from "lucide-react";
-import footerBg from "../assets/footer.png";
+import footerBg from "../assets/footer.webp";
 
 const faqs = [
     {

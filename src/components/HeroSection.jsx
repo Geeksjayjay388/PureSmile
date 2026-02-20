@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, MapPin } from 'lucide-react';
-import heroImage from '../assets/herotooth.png';
+import heroImage from '../assets/herotooth.webp';
 import video from '../assets/video-thumbnail.png';
 
 const LocationPointer = ({ city, address, className }) => {
