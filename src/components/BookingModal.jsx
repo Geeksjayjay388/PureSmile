@@ -84,20 +84,34 @@ const BookingModal = ({ isOpen, onClose }) => {
                                         </p>
                                     </div>
 
-                                    <div className="space-y-4 relative z-10">
+                                    <motion.div
+                                        initial="hidden"
+                                        animate="visible"
+                                        variants={{
+                                            visible: { transition: { staggerChildren: 0.1 } }
+                                        }}
+                                        className="space-y-4 relative z-10"
+                                    >
                                         {[
                                             "Expert Professional Doctors",
                                             "Flexible Booking Slots",
                                             "Certified Dental Clinic"
                                         ].map((benefit, i) => (
-                                            <div key={i} className="flex items-center gap-3 group/item">
+                                            <motion.div
+                                                key={i}
+                                                variants={{
+                                                    hidden: { opacity: 0, x: -20 },
+                                                    visible: { opacity: 1, x: 0 }
+                                                }}
+                                                className="flex items-center gap-3 group/item"
+                                            >
                                                 <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center shadow-lg shadow-black/5">
                                                     <CheckCircle2 size={16} className="text-[#01CE91]" />
                                                 </div>
                                                 <p className="font-bold text-xs tracking-tight">{benefit}</p>
-                                            </div>
+                                            </motion.div>
                                         ))}
-                                    </div>
+                                    </motion.div>
 
                                     {/* Abstract shapes */}
                                     <div className="absolute top-[-10%] left-[-10%] w-64 h-64 bg-white/10 rounded-full blur-3xl" />

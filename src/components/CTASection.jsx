@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X, ArrowUpRight, Mail, MessageSquare } from "lucide-react";
 import footerBg from "../assets/footer.webp";
 
@@ -27,7 +28,11 @@ const faqs = [
 
 function FAQItem({ question, answer, open, onClick, index }) {
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             className={`group rounded-[32px] border px-10 py-8 cursor-pointer transition-all duration-500 ease-out hover:shadow-2xl ${open
                 ? "border-[#01CE91]/40 bg-white shadow-xl"
                 : "border-gray-100 bg-white hover:border-[#01CE91]/20 hover:bg-[#FAFAFA]"
@@ -50,9 +55,9 @@ function FAQItem({ question, answer, open, onClick, index }) {
                 </div>
 
                 {/* Animated icon button */}
-                <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${open ? "bg-[#01CE91] text-white rotate-0" : "bg-gray-100 text-gray-400 group-hover:bg-[#01CE91] group-hover:text-white rotate-0"}`}>
+                <div className={`flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-500 ${open ? "bg-[#01CE91] text-white rotate-180" : "bg-gray-100 text-gray-400 group-hover:bg-[#01CE91] group-hover:text-white rotate-0"}`}>
                     {open ? (
-                        <X size={24} className="transition-transform duration-300 rotate-90" />
+                        <X size={24} className="transition-transform duration-300" />
                     ) : (
                         <Plus size={24} className="transition-transform duration-300 group-hover:rotate-90" />
                     )}
@@ -60,32 +65,56 @@ function FAQItem({ question, answer, open, onClick, index }) {
             </div>
 
             {/* Expandable answer with smooth animation */}
-            <div className={`grid transition-all duration-500 ease-out ${open ? "grid-rows-[1fr] opacity-100 mt-6" : "grid-rows-[0fr] opacity-0 mt-0"}`}>
-                <div className="overflow-hidden">
-                    <div className="pl-16 pr-4 pb-4">
-                        <p className="text-sm md:text-base text-gray-500 leading-relaxed font-medium">{answer}</p>
+            <AnimatePresence>
+                {open && (
+                    <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: "easeInOut" }}
+                        className="overflow-hidden"
+                    >
+                        <div className="pl-16 pr-4 pb-4 mt-6">
+                            <p className="text-sm md:text-base text-gray-500 leading-relaxed font-medium">{answer}</p>
 
-                        {/* Helpful actions that appear when open */}
-                        <div className={`flex items-center gap-4 mt-8 transition-all duration-500 delay-100 ${open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
-                            <button className="flex items-center gap-3 text-sm font-bold text-[#01CE91] hover:underline group/btn">
-                                <MessageSquare size={18} className="group-hover/btn:scale-110 transition-transform" />
-                                Was this helpful?
-                            </button>
+                            {/* Helpful actions that appear when open */}
+                            <motion.div
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.2 }}
+                                className="flex items-center gap-4 mt-8"
+                            >
+                                <button className="flex items-center gap-3 text-sm font-bold text-[#01CE91] hover:underline group/btn">
+                                    <MessageSquare size={18} className="group-hover/btn:scale-110 transition-transform" />
+                                    Was this helpful?
+                                </button>
+                            </motion.div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </motion.div>
     );
 }
 
-function CTASection({ onBookClick }) {
+function CTABlock({ onBookClick }) {
     return (
         <section className="relative w-full px-6 md:px-8 py-12">
-            <div className="max-w-7xl mx-auto">
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="max-w-7xl mx-auto"
+            >
                 <div className="relative rounded-[32px] overflow-hidden min-h-[400px] md:min-h-[450px] flex items-center justify-center">
                     {/* Background Image */}
-                    <div className="absolute inset-0">
+                    <motion.div
+                        initial={{ scale: 1.1 }}
+                        whileInView={{ scale: 1 }}
+                        transition={{ duration: 1.5 }}
+                        className="absolute inset-0"
+                    >
                         <img
                             src={footerBg}
                             alt="Dental clinic"
@@ -93,35 +122,53 @@ function CTASection({ onBookClick }) {
                         />
                         {/* Overlay for better text readability */}
                         <div className="absolute inset-0 bg-black/40" />
-                    </div>
+                    </motion.div>
 
                     {/* Content */}
                     <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
-                        <h2 className="text-2xl md:text-5xl lg:text-4xl font-medium text-white leading-tight mb-4">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-2xl md:text-5xl lg:text-4xl font-medium text-white leading-tight mb-4"
+                        >
                             <span className="italic font-light">Book Your Dental </span>
                             <span className="italic font-light">Consultation</span>
                             <span className="font-medium"> Today</span>
-                        </h2>
-                        <p className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-lg mx-auto">
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.3 }}
+                            className="text-white/80 text-base md:text-lg leading-relaxed mb-8 max-w-lg mx-auto"
+                        >
                             Quick, comfortable, and personalized care from experienced professionals using modern dental technologies.
-                        </p>
+                        </motion.p>
 
-                        <button
+                        <motion.button
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
                             onClick={onBookClick}
+                            transition={{ duration: 0.5, delay: 0.4 }}
                             className="group inline-flex items-center gap-4 bg-[#1A1A1A] hover:bg-[#2A2A2A] text-white pl-8 pr-3 py-3 rounded-full transition-all duration-500 hover:shadow-2xl hover:shadow-black/40 hover:-translate-y-1 active:scale-95"
                         >
                             <span className="font-light text-base lg:text-lg tracking-wider">Book a Consultation</span>
                             <div className="w-12 h-12 bg-[#01CE91] rounded-full flex items-center justify-center group-hover:bg-white transition-all duration-500 group-hover:rotate-45">
                                 <ArrowUpRight size={22} className="text-white group-hover:text-[#01CE91]" />
                             </div>
-                        </button>
+                        </motion.button>
                     </div>
 
                     {/* Decorative elements */}
                     <div className="absolute top-8 left-8 w-3 h-3 bg-[#01CE91] rounded-full animate-pulse" />
                     <div className="absolute bottom-8 right-8 w-2 h-2 bg-white/50 rounded-full animate-pulse" style={{ animationDelay: "0.5s" }} />
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 }
@@ -143,7 +190,12 @@ export default function FAQSection({ onBookClick }) {
                 <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
                     {/* Left Column */}
                     <div className="flex flex-col gap-8 lg:sticky lg:top-8 lg:self-start w-full md:w-auto" style={{ maxWidth: "480px" }}>
-                        <div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
                             <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                                 Support
                             </span>
@@ -156,10 +208,17 @@ export default function FAQSection({ onBookClick }) {
                                 Clear answers to common concerns about comfort, timing, emergencies, insurance,
                                 and modern orthodontic treatments.
                             </p>
-                        </div>
+                        </motion.div>
 
                         {/* Enhanced Contact Form */}
-                        <form onSubmit={handleSubmit} className="border border-gray-200 rounded-[32px] p-8 flex flex-col gap-6 hover:border-[#01CE91]/30 hover:shadow-2xl transition-all duration-500 bg-white">
+                        <motion.form
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            onSubmit={handleSubmit}
+                            className="border border-gray-200 rounded-[32px] p-8 flex flex-col gap-6 hover:border-[#01CE91]/30 hover:shadow-2xl transition-all duration-500 bg-white"
+                        >
                             <div className="flex items-center gap-4 mb-2">
                                 <div className="w-14 h-14 rounded-2xl bg-[#01CE91]/10 flex items-center justify-center">
                                     <Mail size={24} className="text-[#01CE91]" />
@@ -186,14 +245,16 @@ export default function FAQSection({ onBookClick }) {
                                 className="w-full border border-gray-200 rounded-2xl px-6 py-4 text-base text-gray-700 placeholder-gray-400 outline-none focus:border-[#01CE91] focus:ring-2 focus:ring-[#01CE91]/20 transition-all resize-none font-medium"
                                 required
                             />
-                            <button
+                            <motion.button
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 type="submit"
                                 className="w-full bg-[#1A1A1A] text-white text-base font-bold rounded-full py-5 hover:bg-[#2A2A2A] transition-all duration-300 flex items-center justify-center gap-3 group active:scale-95"
                             >
                                 Send question
                                 <ArrowUpRight size={20} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
-                            </button>
-                        </form>
+                            </motion.button>
+                        </motion.form>
                     </div>
 
                     {/* Right Column — FAQ List */}
@@ -213,7 +274,7 @@ export default function FAQSection({ onBookClick }) {
             </div>
 
             {/* CTA Section */}
-            <CTASection onBookClick={onBookClick} />
+            <CTABlock onBookClick={onBookClick} />
         </section>
     );
 }

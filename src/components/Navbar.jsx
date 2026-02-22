@@ -66,8 +66,9 @@ function Navbar({ onBookClick }) {
                     {NAV_LINKS.map((link) => {
                         const isActive = activeSection === link.id;
                         return (
-                            <li
+                            <motion.li
                                 key={link.id}
+                                whileHover={{ scale: 1.05 }}
                                 className={`px-7 py-3 rounded-full cursor-pointer font-light transition-all duration-300 relative group ${isActive ? 'bg-black text-white shadow-lg' : 'text-gray-600 hover:text-[#01CE91]'
                                     }`}
                             >
@@ -75,7 +76,7 @@ function Navbar({ onBookClick }) {
                                 {!isActive && (
                                     <span className="absolute inset-0 bg-gray-100/50 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center" />
                                 )}
-                            </li>
+                            </motion.li>
                         );
                     })}
                 </ul>
@@ -83,16 +84,22 @@ function Navbar({ onBookClick }) {
 
             {/* Action Buttons - Desktop */}
             <section className="hidden lg:flex gap-4 text-lg">
-                <button className={`px-10 py-3.5 rounded-full font-light shadow-sm transition-all duration-300 border ${isScrolled ? 'bg-white text-black border-gray-100 hover:bg-gray-50' : 'bg-white/10 text-black border-white/20 backdrop-blur-md hover:bg-white/20'
-                    }`}>
+                <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className={`px-10 py-3.5 rounded-full font-light shadow-sm transition-all duration-300 border ${isScrolled ? 'bg-white text-black border-gray-100 hover:bg-gray-50' : 'bg-white/10 text-black border-white/20 backdrop-blur-md hover:bg-white/20'
+                        }`}
+                >
                     Log in
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
                     onClick={onBookClick}
-                    className="bg-[#1A1A1A] text-white px-10 py-3.5 rounded-full font-light shadow-xl hover:bg-black transition-all hover:-translate-y-0.5"
+                    className="bg-[#1A1A1A] text-white px-10 py-3.5 rounded-full font-light shadow-xl hover:bg-black transition-all"
                 >
                     Sign up
-                </button>
+                </motion.button>
             </section>
 
             {/* Mobile Menu Toggle */}

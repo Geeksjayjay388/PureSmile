@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Play, MapPin } from 'lucide-react';
 import heroImage from '../assets/herotooth.webp';
-import video from '../assets/video-thumbnail.png';
+import video from '../assets/video-thumbnail.webp';
 
-const LocationPointer = ({ city, address, className }) => {
+const LocationPointer = ({ city, address, className, delay = 0 }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -12,7 +12,7 @@ const LocationPointer = ({ city, address, className }) => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
+            transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
             className={`absolute z-30 ${className}`}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -41,58 +41,88 @@ const HeroSection = ({ onBookClick }) => {
             <main className="relative w-full max-w-[1700px] mx-auto px-6 md:px-12 lg:px-10 pt-32 md:pt-40 pb-40 md:pb-32">
 
                 {/* Background Image - CENTERED */}
-                <div className="absolute top-[60%] md:top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-60 pointer-events-none z-0 transform scale-[2] md:scale-150">
+                <motion.div
+                    initial={{ opacity: 0, scale: 2.2, y: '20%' }}
+                    animate={{ opacity: 0.6, scale: 1.5, y: '-50%' }}
+                    transition={{ duration: 1.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute top-[75%] md:top-[91%] left-[45%] -translate-x-1/2 mt-[120px] w-full max-w-6xl pointer-events-none z-0 transform"
+                >
                     <img
                         src={heroImage}
                         alt="Background Tooth"
                         className="w-full h-auto object-contain"
                     />
-                </div>
+                </motion.div>
 
                 {/* Left Section: Main Heading & CTA */}
                 <motion.div
-                    initial={{ opacity: 0, x: -30 }}
+                    initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     className="relative z-10 max-w-3xl text-center md:text-left flex flex-col items-center md:items-start"
                 >
-                    <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.1] tracking-tight text-[#01CE91] font-medium">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="text-4xl md:text-7xl lg:text-[5.5rem] leading-[1.1] tracking-tight text-[#01CE91] font-medium"
+                    >
                         Modern dentistry
-                    </h1>
+                    </motion.h1>
 
                     {/* Book Consultation Button */}
-                    <button
+                    <motion.button
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                         onClick={onBookClick}
-                        className="group mt-8 md:mt-10 flex items-center gap-3 bg-[#1A1A1A] text-white pl-6 pr-2 py-3 rounded-full hover:bg-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                        className="group mt-8 md:mt-10 flex items-center gap-3 bg-[#1A1A1A] text-white pl-6 pr-2 py-3 rounded-full hover:bg-black transition-all shadow-lg hover:shadow-xl"
                     >
                         <span className="font-medium text-base md:text-lg">Book a Consultation</span>
                         <div className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center group-hover:bg-[#01CE91] group-hover:text-white transition-colors">
                             <ArrowUpRight size={20} />
                         </div>
-                    </button>
+                    </motion.button>
                 </motion.div>
 
                 {/* Right Section: Catchphrase */}
                 <motion.div
-                    initial={{ opacity: 0, x: 30 }}
+                    initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                    transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
                     className="mt-24 md:mt-10 flex flex-col items-center md:items-end text-center md:text-right relative z-10"
                 >
-                    <h2 className="text-3xl md:text-6xl lg:text-[4.8rem] leading-[1.1] text-[#1A1A1A]">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.6 }}
+                        className="text-3xl md:text-6xl lg:text-[4.8rem] leading-[1.1] text-[#1A1A1A]"
+                    >
                         <span className="font-sans italic">for a confident,</span>
                         <br />
                         <span className="font-sans font-bold text-[#01CE91] not-italic mr-4">healthy</span>
                         <span className="font-sans italic ">smile</span>
-                    </h2>
+                    </motion.h2>
 
-                    <p className="mt-4 md:mt-1 max-w-sm text-gray-500 leading-relaxed text-base md:text-xl font-lightbold">
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 1 }}
+                        className="mt-4 md:mt-1 max-w-sm text-gray-500 leading-relaxed text-base md:text-xl font-lightbold"
+                    >
                         Innovative technologies, pain-free <br />treatments, and personalized care<br /> for adults and children
-                    </p>
+                    </motion.p>
                 </motion.div>
 
                 {/* Video Thumbnail Section */}
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:-bottom-18 md:right-15 lg:right-5 z-20">
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8, delay: 1.2, ease: "backOut" }}
+                    className="absolute bottom-10 left-1/2 -translate-x-1/2 md:translate-x-0 md:left-auto md:-bottom-18 md:right-15 lg:right-5 z-20"
+                >
                     <div className="relative w-72 h-44 md:w-80 md:h-48 bg-gray-900 rounded-3xl overflow-hidden border-4 border-white shadow-2xl transition-transform duration-500 cursor-pointer group">
                         <img
                             src={video}
@@ -100,12 +130,15 @@ const HeroSection = ({ onBookClick }) => {
                             className="w-full h-auto object-cover opacity-80 group-hover:opacity-100 transition-opacity"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <motion.div
+                                whileHover={{ scale: 1.15 }}
+                                className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center group-hover:scale-110 transition-transform"
+                            >
                                 <Play size={20} className="text-white fill-white ml-1" />
-                            </div>
+                            </motion.div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* --- Floating Elements --- */}
 
@@ -113,21 +146,24 @@ const HeroSection = ({ onBookClick }) => {
                 <LocationPointer
                     city="Los Angeles"
                     address="8522 Beverly Blvd, CA 90048"
-                    className="top-32 right-5 md:top-40 md:right-24 lg:right-48 animate-fade-in-up md:block hidden"
+                    className="top-32 right-5 md:top-40 md:right-24 lg:right-48 md:block hidden"
+                    delay={1.4}
                 />
 
                 {/* New York (Bottom Left) */}
                 <LocationPointer
                     city="New York"
                     address="450 7th Ave, Manhattan, NY 10123"
-                    className="bottom-40 left-5 md:bottom-20 md:left-24 lg:left-40 animate-fade-in-up delay-100 md:block hidden"
+                    className="bottom-40 left-5 md:bottom-20 md:left-24 lg:left-40 md:block hidden"
+                    delay={1.6}
                 />
 
                 {/* Miami (Bottom Right area) */}
                 <LocationPointer
                     city="Miami"
                     address="300 Biscayne Blvd Way, FL 33131"
-                    className="bottom-52 right-5 md:bottom-32 md:right-[35%] animate-fade-in-up delay-200 md:block hidden"
+                    className="bottom-52 right-5 md:bottom-32 md:right-[35%] md:block hidden"
+                    delay={1.8}
                 />
             </main>
         </div>

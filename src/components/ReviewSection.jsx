@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowUpRight, Quote, ThumbsUp, MessageCircle, Share2 } from 'lucide-react';
 
 
@@ -49,7 +50,11 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
       className={`bg-white rounded-[32px] border border-gray-100 p-10 flex flex-col gap-6 relative min-h-[300px] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] hover:border-[#01CE91]/20 cursor-pointer group ${index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1'}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -98,12 +103,12 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
 
         {/* Action Buttons */}
         <div className="flex items-center gap-3">
-          <button className="p-3 rounded-full bg-gray-50 hover:bg-[#01CE91] hover:text-white text-gray-400 transition-all duration-300 shadow-sm">
+          <motion.button whileHover={{ scale: 1.1 }} className="p-3 rounded-full bg-gray-50 hover:bg-[#01CE91] hover:text-white text-gray-400 transition-all duration-300 shadow-sm">
             <MessageCircle size={20} />
-          </button>
-          <button className="p-3 rounded-full bg-gray-50 hover:bg-[#01CE91] hover:text-white text-gray-400 transition-all duration-300 shadow-sm">
+          </motion.button>
+          <motion.button whileHover={{ scale: 1.1 }} className="p-3 rounded-full bg-gray-50 hover:bg-[#01CE91] hover:text-white text-gray-400 transition-all duration-300 shadow-sm">
             <Share2 size={20} />
-          </button>
+          </motion.button>
         </div>
       </div>
 
@@ -116,19 +121,25 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
 
       {/* Decorative gradient blob on hover */}
       <div className={`absolute -top-16 -right-16 w-48 h-48 bg-[#01CE91]/10 rounded-full blur-[60px] transition-opacity duration-500 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
-    </div>
+    </motion.div>
   );
 }
 
-function StatsCard({ number, label, icon: Icon }) {
+function StatsCard({ number, label, icon: Icon, delay = 0 }) {
   return (
-    <div className="bg-[#F5F5F5] rounded-[32px] p-10 flex flex-col items-center justify-center text-center hover:bg-[#01CE91] hover:text-white transition-all duration-500 group cursor-pointer shadow-sm hover:shadow-2xl hover:scale-[1.02]">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay }}
+      className="bg-[#F5F5F5] rounded-[32px] p-10 flex flex-col items-center justify-center text-center hover:bg-[#01CE91] hover:text-white transition-all duration-500 group cursor-pointer shadow-sm hover:shadow-2xl hover:scale-[1.02]"
+    >
       <div className="w-16 h-16 rounded-[24px] bg-white group-hover:bg-white/20 flex items-center justify-center mb-6 transition-all duration-500 shadow-sm group-hover:rotate-6">
         <Icon size={32} className="text-[#01CE91] group-hover:text-white transition-colors duration-300" />
       </div>
       <p className="text-2xl md:text-4xl font-black text-[#1A1A1A] group-hover:text-white mb-2 transition-colors duration-300 tracking-tight">{number}</p>
       <p className="text-xs md:text-base font-bold text-gray-500 group-hover:text-white/90 transition-colors duration-300 uppercase tracking-widest">{label}</p>
-    </div>
+    </motion.div>
   );
 }
 
@@ -214,7 +225,12 @@ export default function ReviewsSection() {
         {/* Header Section */}
         <div className="mb-20 lg:mb-24">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-12">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
               <span className="text-[#01CE91] text-sm font-semibold tracking-widest uppercase mb-6 inline-block">
                 Testimonials
               </span>
@@ -224,14 +240,26 @@ export default function ReviewsSection() {
                 <br />
                 <span className="font-light">Trust, Quality and Results</span>
               </h2>
-            </div>
-            <p className="text-gray-500 text-base md:text-lg lg:text-xl max-w-md leading-relaxed">
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-gray-500 text-base md:text-lg lg:text-xl max-w-md leading-relaxed"
+            >
               Hear directly from our patients about their journeys, results, and why they trust our clinic for modern, comfortable, and high-quality dental care.
-            </p>
+            </motion.p>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex flex-wrap gap-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex flex-wrap gap-3"
+          >
             {['all', 'general', 'cosmetic', 'implants', 'orthodontics'].map((filter) => (
               <button
                 key={filter}
@@ -244,41 +272,51 @@ export default function ReviewsSection() {
                 {filter}
               </button>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
-          <StatsCard number="2.5K+" label="Happy Patients" icon={Star} />
-          <StatsCard number="4.9" label="Average Rating" icon={Star} />
-          <StatsCard number="15+" label="Years Experience" icon={Star} />
-          <StatsCard number="98%" label="Success Rate" icon={Star} />
+          <StatsCard number="2.5K+" label="Happy Patients" icon={Star} delay={0.1} />
+          <StatsCard number="4.9" label="Average Rating" icon={Star} delay={0.2} />
+          <StatsCard number="15+" label="Years Experience" icon={Star} delay={0.3} />
+          <StatsCard number="98%" label="Success Rate" icon={Star} delay={0.4} />
         </div>
 
         {/* Reviews Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredReviews.map((review, index) => (
-            <ReviewCard key={index} {...review} index={index} />
-          ))}
+          <AnimatePresence mode="popLayout">
+            {filteredReviews.map((review, index) => (
+              <ReviewCard key={review.author} {...review} index={index} />
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* Load More / Bottom Actions */}
         <div className="flex flex-col sm:flex-row items-center justify-between mt-20 gap-8">
-          <button className="group flex items-center gap-4 border-2 border-gray-200 rounded-full px-8 py-4 text-base font-bold text-gray-700 hover:border-[#01CE91] hover:text-[#01CE91] transition-all duration-300 active:scale-95">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="group flex items-center gap-4 border-2 border-gray-200 rounded-full px-8 py-4 text-base font-bold text-gray-700 hover:border-[#01CE91] hover:text-[#01CE91] transition-all duration-300 active:scale-95"
+          >
             Write a Review
             <div className="w-10 h-10 rounded-full bg-gray-800 group-hover:bg-[#01CE91] flex items-center justify-center transition-colors duration-300">
               <ArrowUpRight size={20} className="text-white" />
             </div>
-          </button>
+          </motion.button>
 
           <div className="flex items-center gap-8">
             <span className="text-gray-400 text-base font-medium">Showing {filteredReviews.length} of {reviews.length} reviews</span>
-            <button className="group flex items-center gap-4 bg-[#1A1A1A] text-white rounded-full px-8 py-4 text-base font-bold hover:bg-[#2A2A2A] transition-all duration-300 hover:shadow-xl hover:shadow-[#01CE91]/20 active:scale-95">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="group flex items-center gap-4 bg-[#1A1A1A] text-white rounded-full px-8 py-4 text-base font-bold hover:bg-[#2A2A2A] transition-all duration-300 hover:shadow-xl hover:shadow-[#01CE91]/20 active:scale-95"
+            >
               Explore more
               <div className="w-10 h-10 rounded-full bg-[#01CE91] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                 <ArrowUpRight size={20} className="text-white" />
               </div>
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
