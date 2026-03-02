@@ -55,11 +55,11 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`bg-white rounded-[32px] border border-gray-100 p-10 flex flex-col gap-6 relative min-h-[300px] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] hover:border-[#01CE91]/20 cursor-pointer group ${index % 2 === 0 ? 'hover:-rotate-1' : 'hover:rotate-1'}`}
+      className={`bg-white rounded-[32px] border border-gray-100 p-10 flex flex-col gap-6 relative min-h-[300px] transition-all duration-500 hover:shadow-[0_40px_80px_rgba(0,0,0,0.12)] hover:border-[#01CE91]/20 cursor-pointer group`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        transform: isHovered ? `translateY(-8px) ${index % 2 === 0 ? 'rotate(-1.5deg)' : 'rotate(1.5deg)'}` : 'translateY(0) rotate(0deg)',
+        transform: isHovered ? `translateY(-8px)` : 'translateY(0)',
         transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
       }}
     >
@@ -114,7 +114,7 @@ function ReviewCard({ rating, ratingDisplay, text, author, avatar, time, quoteVi
 
       {/* Quote Icon - Enhanced */}
       {quoteVisible && (
-        <div className="absolute top-6 right-8 text-[#01CE91]/10 group-hover:text-[#01CE91]/20 transition-all duration-300 group-hover:scale-125 group-hover:-rotate-12">
+        <div className="absolute top-6 right-8 text-[#01CE91]/10 group-hover:text-[#01CE91]/20 transition-all duration-300 group-hover:scale-125">
           <Quote size={56} fill="currentColor" />
         </div>
       )}

@@ -8,12 +8,22 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Critical assets to preload
+    // Critical assets to preload — includes all service images so they appear instantly
     const assets = [
       '/src/assets/herotooth.webp',
       '/src/assets/footer.webp',
       '/src/assets/teeths.webp',
-      '/src/assets/smile.webp'
+      '/src/assets/smile.webp',
+      '/src/assets/1.webp',
+      '/src/assets/2.webp',
+      '/src/assets/3.webp',
+      '/src/assets/4.webp',
+      '/src/assets/5.webp',
+      '/src/assets/6.webp',
+      '/src/assets/7.webp',
+      '/src/assets/8.webp',
+      '/src/assets/before.png',
+      '/src/assets/after.png',
     ];
 
     let loadedCount = 0;
@@ -26,7 +36,6 @@ function App() {
         const elapsedTime = Date.now() - startTime;
         const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
 
-        // Wait for remaining minimum time if needed
         setTimeout(() => {
           setIsLoading(false);
         }, remainingTime);

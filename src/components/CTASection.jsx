@@ -131,11 +131,11 @@ function CTABlock({ onBookClick }) {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-2xl md:text-5xl lg:text-4xl font-medium text-white leading-tight mb-4"
+                            className="text-4xl md:text-8xl lg:text-4xl font-medium text-white leading-tight mb-4"
                         >
-                            <span className="italic font-light">Book Your Dental </span>
-                            <span className="italic font-light">Consultation</span>
-                            <span className="font-medium"> Today</span>
+                            <span className="text-2xl md:text-2xl lg:text-4xl italic font-light">Book Your Dental </span>
+                            <span className="text-2xl md:text-2xl lg:text-4xl italic font-light">Consultation</span>
+                            <span className="text-2xl md:text-2xl lg:text-4xl font-medium"> Today</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}

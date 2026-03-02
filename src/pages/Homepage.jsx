@@ -4,6 +4,7 @@ import HeroSection from "../components/HeroSection.jsx";
 import About from "../components/About.jsx";
 import Services from "../components/Services.jsx";
 import Doctors from "../components/Doctors.jsx";
+import BeforeAfter from "../components/BeforeAfter.jsx";
 import Footer from "../components/Footer.jsx";
 import ReviewsSection from "../components/ReviewSection.jsx";
 import BookingModal from "../components/BookingModal.jsx";
@@ -21,6 +22,7 @@ function Homepage() {
             <div id="about"><About /></div>
             <div id="services"><Services /></div>
             <div id="doctors"><Doctors /></div>
+            <div id="transformation"><BeforeAfter /></div>
             <div id="reviews"><ReviewsSection /></div>
 
             <div id="cta"><CTASection onBookClick={openModal} /></div>

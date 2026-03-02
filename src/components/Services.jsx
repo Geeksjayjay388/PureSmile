@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import service1 from '../assets/1.png';
-import service2 from '../assets/2.png';
-import service3 from '../assets/3.png';
-import service4 from '../assets/4.png';
-import service5 from '../assets/5.png';
+import service1 from '../assets/1.webp';
+import service2 from '../assets/2.webp';
+import service3 from '../assets/3.webp';
+import service4 from '../assets/4.webp';
+import service5 from '../assets/5.webp';
 import service6 from '../assets/6.webp';
 import service7 from '../assets/7.webp';
 import service8 from '../assets/8.webp';
@@ -13,18 +13,15 @@ import service8 from '../assets/8.webp';
 const Services = () => {
     const [showMore, setShowMore] = useState(false);
 
-    const initialServices = [
-        { id: 1, img: service1, rotation: "rotate-2", marginTop: "mt-0" },
-        { id: 2, img: service2, rotation: "-rotate-1", marginTop: "mt-16" },
-        { id: 3, img: service3, rotation: "rotate-1", marginTop: "mt-8" },
-        { id: 4, img: service4, rotation: "rotate-2", marginTop: "mt-0" },
-        { id: 5, img: service5, rotation: "-rotate-1", marginTop: "mt-16" },
-    ];
-
-    const additionalServices = [
-        { id: 6, img: service6, rotation: "rotate-2", marginTop: "mt-0" },      // Bottom left area
-        { id: 7, img: service7, rotation: "-rotate-1", marginTop: "mt-16" },    // Offset right
-        { id: 8, img: service8, rotation: "rotate-1", marginTop: "mt-8" },      // Bottom right
+    const services = [
+        { id: 1, img: service1 },
+        { id: 2, img: service2 },
+        { id: 3, img: service3 },
+        { id: 4, img: service4 },
+        { id: 5, img: service5 },
+        { id: 6, img: service6 },
+        { id: 7, img: service7 },
+        { id: 8, img: service8 },
     ];
 
     const containerVariants = {
@@ -51,22 +48,27 @@ const Services = () => {
         }
     };
 
-    const renderCard = (item, index, isAdditional = false) => {
-        // For additional cards, calculate position in new row
-        const totalIndex = isAdditional ? index + 5 : index;
-        const isLeft = totalIndex % 2 === 0;
+    const visibleServices = services.slice(0, showMore ? services.length : 6);
+
+    const renderCard = (item, index) => {
+        // According to the zigzag drawing:
+        // Index 0: Left, Top
+        // Index 1: Right, Slightly Down
+        // Index 2: Left, Lower
+        // Index 3: Right, Lower Still
+        // Index 4: Centered (Large)
 
         return (
             <motion.div
                 key={item.id}
                 variants={cardVariants}
                 layout
-                className={`${item.marginTop} ${isLeft ? 'md:justify-self-end' : 'md:justify-self-start'} ${isLeft ? 'md:pr-12' : 'md:pl-12'}`}
+                className="flex justify-center w-full"
             >
                 <motion.div
-                    whileHover={{ scale: 1.03, rotate: isLeft ? -1 : 1 }}
+                    whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.3 }}
-                    className={`group w-full max-w-[400px] ${item.rotation}`}
+                    className="group w-full max-w-[400px]"
                 >
                     <div className="bg-white rounded-[32px] p-5 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(1,206,145,0.15)] transition-all duration-300">
                         <div className="rounded-[24px] overflow-hidden">
@@ -74,6 +76,7 @@ const Services = () => {
                                 src={item.img}
                                 alt={`Service ${item.id}`}
                                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                                style={{ display: 'block' }}
                             />
                         </div>
                     </div>
@@ -116,33 +119,21 @@ const Services = () => {
                     </motion.div>
                 </div>
 
-                {/* --- Services Grid --- */}
-                <div className="space-y-12">
-                    {/* First Row - Always visible */}
+                {/* --- Services Zigzag Layout --- */}
+                <div className="max-w-[1200px] mx-auto">
                     <motion.div
                         variants={containerVariants}
                         initial="visible"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 lg:gap-x-24 lg:gap-y-8 max-w-[1400px] mx-auto"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12"
                     >
-                        {initialServices.map((item, index) => renderCard(item, index))}
+                        <AnimatePresence mode="popLayout">
+                            {visibleServices.map((item, index) => (
+                                renderCard(item, index)
+                            ))}
+                        </AnimatePresence>
                     </motion.div>
-
-                    {/* Second Row - Appears on "Explore more" */}
-                    <AnimatePresence mode="wait">
-                        {showMore && (
-                            <motion.div
-                                variants={containerVariants}
-                                initial="hidden"
-                                animate="visible"
-                                exit="exit"
-                                className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 lg:gap-x-24 lg:gap-y-8 max-w-[1400px] mx-auto pt-8"
-                            >
-                                {additionalServices.map((item, index) => renderCard(item, index, true))}
-                            </motion.div>
-                        )}
-                    </AnimatePresence>
                 </div>
 
                 {/* --- Bottom CTA --- */}
